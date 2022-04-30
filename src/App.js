@@ -1,25 +1,50 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
+import { useAxios } from './hooks/useAxios';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [languages, setLanguages] = useState([]);
+
+  const { response, loading, error } = useAxios();
+
+  useEffect(() => {
+    if (response !== null) {
+      setLanguages(response.data.data.languages);
+    }
+  }, [response]);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>Flüsterpost</p>
       </header>
+
+      <div className="App-body">
+        {loading ? (
+          <p>loading...</p>
+        ) : (
+          <div>
+            {error && (<p>error: {error.message}</p>)}
+
+            {response && languages ? (
+              <div>
+                <h4>{`supported languages (${languages.length})`}</h4>
+                <ul>
+                  {languages.map((language, i) => (
+                    <li key={i}>{language.language}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <div><p>no response</p></div>
+            )}
+
+          </div>
+        )}
+
+      </div>
     </div>
   );
-}
+};
 
-export default App;
+export { App };
