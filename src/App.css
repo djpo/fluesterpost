@@ -27,3 +27,9 @@
   border: 1px solid black;
   background-color: rgba(0, 0, 0, 0);
 }
+
+.origin-text > input {
+  border: 1px solid black;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0);
+}

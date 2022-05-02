@@ -1,23 +1,27 @@
-import { useState, useEffect } from 'react';
-import { useAxios } from './hooks/useAxios';
+import { useState } from 'react';
 import './App.css';
 import { defaultSupportedLanguages } from './defaultState';
 
 const App = () => {
-  const [languages, setLanguages] = useState(defaultSupportedLanguages);
+  const [languages] = useState(defaultSupportedLanguages);
   const [originLanguage, setOriginLanguage] = useState(defaultSupportedLanguages[15]);
 
-  const { response, loading, error } = useAxios();
-
-  useEffect(() => {
-    if (response !== null) {
-      setLanguages(response.data.data.languages);
-    }
-  }, [response]);
-
-  const handleChooseOriginLanguage = (event) => {
+  function handleChooseOriginLanguage(event) {
     setOriginLanguage(event.target.value);
-  };
+  }
+
+  function useTextInput(defaultValue) {
+    const [value, setValue] = useState(defaultValue);
+    function onChange(e) {
+      setValue(e.target.value);
+    }
+    return {
+      value,
+      onChange,
+    };
+  }
+
+  const textInputProps = useTextInput();
 
   return (
     <div className="App">
@@ -29,7 +33,7 @@ const App = () => {
         <div className="origin-language-button">
           origin language:
           <select className="origin-language-picker" value={originLanguage} onChange={handleChooseOriginLanguage}>
-            {defaultSupportedLanguages.map((language, i) => (
+            {languages.map((language, i) => (
               <option key={i} value={language}>{language}</option>
             ))}
           </select>
@@ -37,32 +41,20 @@ const App = () => {
 
         <button
           className="origin-language-button"
-          onClick={() => setOriginLanguage(defaultSupportedLanguages[Math.floor(Math.random() * defaultSupportedLanguages.length)])}
+          onClick={() => setOriginLanguage(languages[Math.floor(Math.random() * languages.length)])}
         >
           randomize
         </button>
 
-        {error && (<p>error: {error.message}</p>)}
-
         <hr />
-        <p>{`supported languages (${languages.length})`}</p>
-        {loading ? (
-          <p>loading...</p>
-        ) : (
-          <>
-            {response && languages ? (
-              <div>
-                <ul>
-                  {languages.map((language, i) => (
-                    <li key={i}>{language.language}</li>
-                  ))}
-                </ul>
-              </div>
-            ) : (
-              <div><p>no response</p></div>
-            )}
-          </>
-        )}
+        <div className="origin-text">
+          <p>origin text</p>
+          <input
+            value={textInputProps.value}
+            onChange={textInputProps.onChange}
+            placeholder="enter text"
+          />
+        </div>
       </div>
     </div>
   );
