@@ -5,7 +5,7 @@ import { defaultSupportedLanguages } from './defaultState';
 
 const App = () => {
   const [languages, setLanguages] = useState(defaultSupportedLanguages);
-  const [originLanguage, setOriginLanguage] = useState(defaultSupportedLanguages[0]);
+  const [originLanguage, setOriginLanguage] = useState(defaultSupportedLanguages[15]);
 
   const { response, loading, error } = useAxios();
 
@@ -15,6 +15,10 @@ const App = () => {
     }
   }, [response]);
 
+  const handleChooseOriginLanguage = (event) => {
+    setOriginLanguage(event.target.value);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -22,15 +26,20 @@ const App = () => {
       </header>
 
       <div className="App-body">
-        <div className="origin-language">
-          origin language: {originLanguage}
+        <div className="origin-language-button">
+          origin language:
+          <select className="origin-language-picker" value={originLanguage} onChange={handleChooseOriginLanguage}>
+            {defaultSupportedLanguages.map((language, i) => (
+              <option key={i} value={language}>{language}</option>
+            ))}
+          </select>
         </div>
 
         <button
           className="origin-language-button"
           onClick={() => setOriginLanguage(defaultSupportedLanguages[Math.floor(Math.random() * defaultSupportedLanguages.length)])}
         >
-          set to random language
+          randomize
         </button>
 
         {error && (<p>error: {error.message}</p>)}
