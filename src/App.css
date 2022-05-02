@@ -19,5 +19,12 @@
   border: 1px solid black;
   background-color: rgba(179, 179, 179, 0.755);
   padding: 5px;
-  display: flex;
+  margin-bottom: 5px;
+}
+
+.origin-language-button {
+  border: 1px solid black;
+  background-color: rgba(179, 179, 179, 0.755);
+  padding: 5px;
+  margin-bottom: 10px;
 }
