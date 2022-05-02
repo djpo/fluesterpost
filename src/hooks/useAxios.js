@@ -4,17 +4,17 @@ import { dummyResponse } from '../api/dummyResponse';
 
 axios.defaults.baseURL = process.env.REACT_APP_GOOGLE_TRANSLATE_URL;
 const apiKey = process.env.REACT_APP_GOOGLE_CLOUD_API_KEY;
-const defaultParams = {
+const params = {
   method: 'GET',
   url: `language/translate/v2/languages?key=${apiKey}`,
 };
 
-const useAxios = (axiosParams) => {
+const useAxios = () => {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
 
-  const fetchData = async (params = defaultParams) => {
+  const fetchData = async (params) => {
     try {
       // // Google Translate API call
       // const result = await axios.request(params);
@@ -33,7 +33,7 @@ const useAxios = (axiosParams) => {
   };
 
   useEffect(() => {
-    fetchData(axiosParams);
+    fetchData(params);
   }, []);
 
   return {

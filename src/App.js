@@ -1,27 +1,34 @@
-import { useState } from 'react';
-import './App.css';
+import { useState, useEffect } from 'react';
+import { useTranslation } from './hooks/useTranslation';
 import { defaultSupportedLanguages } from './defaultState';
+import './App.css';
 
 const App = () => {
   const [languages] = useState(defaultSupportedLanguages);
   const [originLanguage, setOriginLanguage] = useState(defaultSupportedLanguages[15]);
+  const [originText, setOriginText] = useState('sunshine');
+  const [isTranslating, setIsTranslating] = useState(true);
+  const [translation, setTranslation] = useState(null);
 
   function handleChooseOriginLanguage(event) {
     setOriginLanguage(event.target.value);
   }
 
-  function useTextInput(defaultValue) {
-    const [value, setValue] = useState(defaultValue);
-    function onChange(e) {
-      setValue(e.target.value);
-    }
-    return {
-      value,
-      onChange,
-    };
+  function handleBeginTranslation() {
+    setIsTranslating(true);
   }
 
-  const textInputProps = useTextInput();
+  const {
+    translationResponse,
+    translationError,
+  } = useTranslation(originText, 'de', originLanguage);
+
+  useEffect(() => {
+    if (translationResponse !== null) {
+      setTranslation(translationResponse);
+      setIsTranslating(false);
+    }
+  }, [translationResponse]);
 
   return (
     <div className="App">
@@ -30,7 +37,7 @@ const App = () => {
       </header>
 
       <div className="App-body">
-        <div className="origin-language-button">
+        <div className="button">
           origin language:
           <select className="origin-language-picker" value={originLanguage} onChange={handleChooseOriginLanguage}>
             {languages.map((language, i) => (
@@ -40,7 +47,7 @@ const App = () => {
         </div>
 
         <button
-          className="origin-language-button"
+          className="button"
           onClick={() => setOriginLanguage(languages[Math.floor(Math.random() * languages.length)])}
         >
           randomize
@@ -50,10 +57,30 @@ const App = () => {
         <div className="origin-text">
           <p>origin text</p>
           <input
-            value={textInputProps.value}
-            onChange={textInputProps.onChange}
+            value={originText}
+            onChange={e => setOriginText(e.target.value)}
             placeholder="enter text"
           />
+        </div>
+
+        <p>{originText}</p>
+
+        <hr />
+        <button
+          className="button"
+          onClick={() => handleBeginTranslation()}
+        >
+          translate into German
+        </button>
+
+        <div className="translation">
+          {translationError && (<p>error: {translationError.message}</p>)}
+
+          {isTranslating ? (
+            <p>translating...</p>
+          ) : (
+            <p>{translation}</p>
+          )}
         </div>
       </div>
     </div>
