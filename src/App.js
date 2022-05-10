@@ -1,14 +1,15 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from './hooks/useTranslation';
 import { defaultSupportedLanguages } from './defaultState';
+import { TranslatedText } from './TranslatedText';
 import './App.css';
 
 const App = () => {
   const [languages] = useState(defaultSupportedLanguages);
   const [originLanguage, setOriginLanguage] = useState(defaultSupportedLanguages[15]);
   const [originText, setOriginText] = useState('sunshine');
-  const [isTranslating, setIsTranslating] = useState(true);
-  const [translation, setTranslation] = useState(null);
+  const [isTranslating, setIsTranslating] = useState(false);
+  const [translation, setTranslation] = useState('initial translation');
 
   function handleChooseOriginLanguage(event) {
     setOriginLanguage(event.target.value);
@@ -67,6 +68,7 @@ const App = () => {
 
         <hr />
         <button
+          disabled={isTranslating}
           className="button"
           onClick={() => handleBeginTranslation()}
         >
@@ -75,12 +77,10 @@ const App = () => {
 
         <div className="translation">
           {translationError && (<p>error: {translationError.message}</p>)}
-
-          {isTranslating ? (
-            <p>translating...</p>
-          ) : (
-            <p>{translation}</p>
-          )}
+          <TranslatedText
+            isTranslating={isTranslating}
+            text={translation}
+          />
         </div>
       </div>
     </div>
