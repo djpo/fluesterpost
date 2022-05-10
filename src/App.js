@@ -8,28 +8,15 @@ const App = () => {
   const [languages] = useState(defaultSupportedLanguages);
   const [originLanguage, setOriginLanguage] = useState(defaultSupportedLanguages[15]);
   const [originText, setOriginText] = useState('sunshine');
-  const [isTranslating, setIsTranslating] = useState(false);
-  const [translation, setTranslation] = useState('initial translation');
+  const [translationResponse, setTranslationResponse] = useTranslation();
 
-  function handleChooseOriginLanguage(event) {
+  const handleChooseOriginLanguage = (event) => {
     setOriginLanguage(event.target.value);
-  }
+  };
 
-  function handleBeginTranslation() {
-    setIsTranslating(true);
-  }
-
-  const {
-    translationResponse,
-    translationError,
-  } = useTranslation(originText, 'de', originLanguage);
-
-  useEffect(() => {
-    if (translationResponse !== null) {
-      setTranslation(translationResponse);
-      setIsTranslating(false);
-    }
-  }, [translationResponse]);
+  const handleBeginTranslation = () => {
+    setTranslationResponse();
+  };
 
   return (
     <div className="App">
@@ -68,7 +55,7 @@ const App = () => {
 
         <hr />
         <button
-          disabled={isTranslating}
+          disabled={translationResponse.isFetching}
           className="button"
           onClick={() => handleBeginTranslation()}
         >
@@ -76,10 +63,10 @@ const App = () => {
         </button>
 
         <div className="translation">
-          {translationError && (<p>error: {translationError.message}</p>)}
+          {translationResponse.error && (<p>error: {translationResponse.error.message}</p>)}
           <TranslatedText
-            isTranslating={isTranslating}
-            text={translation}
+            isTranslating={translationResponse.isFetching}
+            text={translationResponse.justTheTranslation}
           />
         </div>
       </div>
