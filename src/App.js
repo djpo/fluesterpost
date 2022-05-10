@@ -7,6 +7,7 @@ import './App.css';
 const App = () => {
   const [languages] = useState(defaultSupportedLanguages);
   const [originLanguage, setOriginLanguage] = useState(defaultSupportedLanguages[15]);
+  const [targetLanguage, setTargetLanguage] = useState(defaultSupportedLanguages[13]);
   const [originText, setOriginText] = useState('');
   const { isFetching, error, translation, fetchTranslation } = useTranslation();
 
@@ -14,8 +15,12 @@ const App = () => {
     setOriginLanguage(event.target.value);
   };
 
+  const handleChooseTargetLanguage = (event) => {
+    setTargetLanguage(event.target.value);
+  };
+
   const handleBeginTranslation = () => {
-    fetchTranslation(originLanguage, originText);
+    fetchTranslation(originLanguage, targetLanguage, originText);
   };
 
   return (
@@ -25,25 +30,22 @@ const App = () => {
       </header>
 
       <div className="App-body">
-        <div className="button">
+        <div className="gray-box">
           origin language:
-          <select className="origin-language-picker" value={originLanguage} onChange={handleChooseOriginLanguage}>
+          <select className="language-picker" value={originLanguage} onChange={handleChooseOriginLanguage}>
             {languages.map((language, i) => (
               <option key={i} value={language}>{language}</option>
             ))}
           </select>
+          <button
+            className="random-button"
+            onClick={() => setOriginLanguage(languages[Math.floor(Math.random() * languages.length)])}
+          >
+            randomize
+          </button>
         </div>
 
-        <button
-          className="button"
-          onClick={() => setOriginLanguage(languages[Math.floor(Math.random() * languages.length)])}
-        >
-          randomize
-        </button>
-
-        <hr />
         <div className="origin-text">
-          <p>origin text</p>
           <input
             value={originText}
             onChange={e => setOriginText(e.target.value)}
@@ -51,15 +53,31 @@ const App = () => {
           />
         </div>
 
-        <p>{originText}</p>
+        <hr />
+
+        <div className="gray-box">
+          target language:
+          <select className="language-picker" value={targetLanguage} onChange={handleChooseTargetLanguage}>
+            {languages.map((language, i) => (
+              <option key={i} value={language}>{language}</option>
+            ))}
+          </select>
+          <button
+            className="random-button"
+            onClick={() => setTargetLanguage(languages[Math.floor(Math.random() * languages.length)])}
+          >
+            randomize
+          </button>
+        </div>
 
         <hr />
+
         <button
           disabled={isFetching}
-          className="button"
+          className="gray-box"
           onClick={() => handleBeginTranslation()}
         >
-          translate into German
+          translate
         </button>
 
         <div className="translation">
