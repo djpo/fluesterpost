@@ -8,14 +8,14 @@ const App = () => {
   const [languages] = useState(defaultSupportedLanguages);
   const [originLanguage, setOriginLanguage] = useState(defaultSupportedLanguages[15]);
   const [originText, setOriginText] = useState('sunshine');
-  const [translationResponse, setTranslationResponse] = useTranslation();
+  const { isFetching, error, translation, fetchTranslation } = useTranslation();
 
   const handleChooseOriginLanguage = (event) => {
     setOriginLanguage(event.target.value);
   };
 
   const handleBeginTranslation = () => {
-    setTranslationResponse();
+    fetchTranslation();
   };
 
   return (
@@ -55,7 +55,7 @@ const App = () => {
 
         <hr />
         <button
-          disabled={translationResponse.isFetching}
+          disabled={isFetching}
           className="button"
           onClick={() => handleBeginTranslation()}
         >
@@ -63,10 +63,10 @@ const App = () => {
         </button>
 
         <div className="translation">
-          {translationResponse.error && (<p>error: {translationResponse.error.message}</p>)}
+          {error && (<p>error: {error.message}</p>)}
           <TranslatedText
-            isTranslating={translationResponse.isFetching}
-            text={translationResponse.justTheTranslation}
+            isTranslating={isFetching}
+            text={translation}
           />
         </div>
       </div>

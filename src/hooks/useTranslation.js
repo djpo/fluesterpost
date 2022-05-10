@@ -22,51 +22,42 @@ const params = {
 };
 
 const apiFunction = async () => {
-  // Google Translate API call
-  return axios.request(params);
-
   // // dummy API response (so I don't use up my API quota)
   // const timeout = (ms) => new Promise(resolve => setTimeout(resolve, ms));
   // await timeout(1000);
   // return dummyResponse;
+
+  // Google Translate API call
+  return axios.request(params);
 }
 
 const useTranslation = () => {
-  const [response, setResponse] = useState({
-    justTheTranslation: 'initial translation',
-    isFetching: false,
-    error: null,
-  });
+  const [translation, setTranslation] = useState('initial translation');
+  const [isFetching, setIsFetching] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleFetch = async () => {
+  const fetchTranslation = async () => {
     try {
-      setResponse({
-        data: null,
-        isFetching: true,
-        error: null,
-      });
+      setIsFetching(true);
+      setTranslation(null);
+      setError(null);
 
-      const result = await apiFunction();
+      const response = await apiFunction();
 
-      setResponse({
-        data: result,
-        justTheTranslation: result.data.data.translations[0].translatedText,
-      });
+      setTranslation(response.data.data.translations[0].translatedText);
     } catch(error) {
-      setResponse({
-        error: error.message,
-      });
+      setError(error);
     } finally {
-      setResponse({
-        isFetching: false,
-      });
+      setIsFetching(false);
     }
   };
 
-  return [
-    response,
-    handleFetch,
-  ];
+  return {
+    isFetching,
+    error,
+    translation,
+    fetchTranslation,
+  };
 };
 
 export { useTranslation };
