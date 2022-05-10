@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
 const dummyResponse = {
@@ -13,15 +13,9 @@ const dummyResponse = {
 
 axios.defaults.baseURL = process.env.REACT_APP_GOOGLE_TRANSLATE_URL;
 const apiKey = process.env.REACT_APP_GOOGLE_CLOUD_API_KEY;
-const source = 'en';
 const target = 'de';
-const query = 'hello, please translate me';
-const params = {
-  method: 'POST',
-  url: `language/translate/v2/?key=${apiKey}&q=${query}&target=${target}&source=${source}`,
-};
 
-const apiFunction = async () => {
+const apiFunction = async (params) => {
   // // dummy API response (so I don't use up my API quota)
   // const timeout = (ms) => new Promise(resolve => setTimeout(resolve, ms));
   // await timeout(1000);
@@ -32,17 +26,22 @@ const apiFunction = async () => {
 }
 
 const useTranslation = () => {
-  const [translation, setTranslation] = useState('initial translation');
+  const [translation, setTranslation] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchTranslation = async () => {
+  const fetchTranslation = async (originLanguage, originText) => {
+    const params = {
+      method: 'POST',
+      url: `language/translate/v2/?key=${apiKey}&q=${originText}&target=${target}&source=${originLanguage}`,
+    };
+
     try {
       setIsFetching(true);
       setTranslation(null);
       setError(null);
 
-      const response = await apiFunction();
+      const response = await apiFunction(params);
 
       setTranslation(response.data.data.translations[0].translatedText);
     } catch(error) {

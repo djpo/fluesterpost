@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from './hooks/useTranslation';
 import { defaultSupportedLanguages } from './defaultState';
 import { TranslatedText } from './TranslatedText';
@@ -7,7 +7,7 @@ import './App.css';
 const App = () => {
   const [languages] = useState(defaultSupportedLanguages);
   const [originLanguage, setOriginLanguage] = useState(defaultSupportedLanguages[15]);
-  const [originText, setOriginText] = useState('sunshine');
+  const [originText, setOriginText] = useState('');
   const { isFetching, error, translation, fetchTranslation } = useTranslation();
 
   const handleChooseOriginLanguage = (event) => {
@@ -15,7 +15,7 @@ const App = () => {
   };
 
   const handleBeginTranslation = () => {
-    fetchTranslation();
+    fetchTranslation(originLanguage, originText);
   };
 
   return (
