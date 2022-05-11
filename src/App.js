@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from './hooks/useTranslation';
 import { defaultSupportedLanguages } from './defaultState';
 import { TranslatedText } from './TranslatedText';
+import { StepRow } from './StepRow';
 import './App.css';
 
 const App = () => {
@@ -87,6 +88,10 @@ const App = () => {
             text={translation}
           />
         </div>
+
+        <StepRow />
+        <StepRow />
+        <StepRow />
       </div>
     </div>
   );

@@ -1,0 +1,43 @@
+.step-row {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+.step-lang-box {
+  margin-right: 30px;
+  height: 60px;
+  width: 60px;
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.step-lang-text {
+  min-width: 300px;
+  max-width: 50vw;
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 5px;
+}
+
+.step-lang-box-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.step-lang-button {
+  margin: 2px;
+  border: 1px solid black;
+  height: 15px;
+  width: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step-lang-label {
+  margin-top: 2px;
+  display: flex;
+  justify-content: center;
+}
