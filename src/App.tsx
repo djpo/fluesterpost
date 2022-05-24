@@ -15,13 +15,13 @@ interface Event {
 function App(): JSX.Element {
   const [languages] = useState<Language[]>(defaultSupportedLanguages);
   const [originLanguage, setOriginLanguage] = useState<Language>(
-    defaultSupportedLanguages[15]
+    defaultSupportedLanguages[15] // en
   );
   const [targetLanguage, setTargetLanguage] = useState<Language>(
-    defaultSupportedLanguages[13]
+    defaultSupportedLanguages[13] // de
   );
   const [originText, setOriginText] = useState<TranslationText>("");
-  const { isFetching, error, translation, fetchTranslation } = useTranslation();
+  const { isFetching, error, translation1, translation2, fetchTranslation } = useTranslation();
 
   const handleChooseOriginLanguage = (event: Event): void => {
     setOriginLanguage(event.target.value);
@@ -60,9 +60,7 @@ function App(): JSX.Element {
           <button
             className="random-button"
             onClick={() =>
-              setOriginLanguage(
-                languages[Math.floor(Math.random() * languages.length)]
-              )
+              setOriginLanguage(languages[Math.floor(Math.random() * languages.length)])
             }
           >
             randomize
@@ -78,53 +76,18 @@ function App(): JSX.Element {
           />
         </div>
 
-        <hr />
+        <StepRow isTranslating={isFetching} language={targetLanguage} text={translation1} />
 
-        <div className="gray-box">
-          target language:
-          <select
-            className="language-picker"
-            // @ts-ignore
-            value={targetLanguage}
-            onChange={handleChooseTargetLanguage}
-          >
-            {languages.map((language, i) => (
-              // @ts-ignore
-              <option key={i} value={language}>
-                {language}
-              </option>
-            ))}
-          </select>
-          <button
-            className="random-button"
-            onClick={() =>
-              setTargetLanguage(
-                languages[Math.floor(Math.random() * languages.length)]
-              )
-            }
-          >
-            randomize
-          </button>
-        </div>
+        <br />
 
-        <hr />
-
-        <button
-          disabled={isFetching}
-          className="gray-box"
-          onClick={() => handleBeginTranslation()}
-        >
+        <button disabled={isFetching} className="gray-box" onClick={() => handleBeginTranslation()}>
           translate
         </button>
 
         <div className="translation">
           {error && <p>error: {error.message}</p>}
-          <TranslatedText isTranslating={isFetching} text={translation} />
+          <TranslatedText isTranslating={isFetching} text={translation2} />
         </div>
-
-        <StepRow />
-        <StepRow />
-        <StepRow />
       </div>
     </div>
   );

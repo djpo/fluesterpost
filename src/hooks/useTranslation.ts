@@ -30,7 +30,8 @@ const apiFunction = async (params: RequestParams) => {
 };
 
 const useTranslation = () => {
-  const [translation, setTranslation] = useState<TranslationText>(null);
+  const [translation1, setTranslation1] = useState<TranslationText>(null);
+  const [translation2, setTranslation2] = useState<TranslationText>(null);
   const [isFetching, setIsFetching] = useState<boolean>(false);
   const [error, setError] = useState<Error>(null);
 
@@ -39,19 +40,30 @@ const useTranslation = () => {
     targetLanguage: Language,
     originText: TranslationText
   ) => {
-    const params: RequestParams = {
+    const params1: RequestParams = {
       method: "POST",
       url: `language/translate/v2/?key=${apiKey}&q=${originText}&target=${targetLanguage}&source=${originLanguage}`,
     };
 
     try {
       setIsFetching(true);
-      setTranslation(null);
+      setTranslation1(null);
+      setTranslation2(null);
       setError(null);
 
-      const response = await apiFunction(params);
+      // translate from origin to step 1
+      const response1 = await apiFunction(params1);
+      const step1Translation = response1.data.data.translations[0].translatedText;
+      setTranslation1(step1Translation);
 
-      setTranslation(response.data.data.translations[0].translatedText);
+      // translate from step 1 back to origin
+      const params2: RequestParams = {
+        method: "POST",
+        url: `language/translate/v2/?key=${apiKey}&q=${step1Translation}&target=${originLanguage}&source=${targetLanguage}`,
+      };
+      const response2 = await apiFunction(params2);
+      const step2Translation = response2.data.data.translations[0].translatedText;
+      setTranslation2(step2Translation);
     } catch (err: any) {
       setError(err);
     } finally {
@@ -62,7 +74,8 @@ const useTranslation = () => {
   return {
     isFetching,
     error,
-    translation,
+    translation1,
+    translation2,
     fetchTranslation,
   };
 };

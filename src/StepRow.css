@@ -12,6 +12,10 @@
   background-color: rgba(255, 255, 255, 0.7);
 }
 
+.step-row-translating {
+  border: 2px solid orange;
+}
+
 .step-lang-text {
   min-width: 300px;
   max-width: 50vw;
