@@ -25,12 +25,13 @@ rules:
   comma-dangle: 1 # fix for prettier (no comma for args)
   indent: 1
   object-curly-newline: [1, { multiline: true, consistent: true }]
+  max-len: [1, { code: 100 }]
+  operator-linebreak: 1
   import/prefer-default-export: 0
   import/extensions: 0
   react/jsx-filename-extension: [1, { extensions: [.tsx, .ts] }]
   react/button-has-type: 0
   arrow-body-style: 1 # fix
-  max-len: 1 # fix
   implicit-arrow-linebreak: 1 # fix
   react/function-component-definition: 1 # fix
   react/no-array-index-key: 1 # fix
