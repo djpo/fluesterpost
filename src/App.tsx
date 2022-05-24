@@ -76,7 +76,13 @@ function App(): JSX.Element {
           />
         </div>
 
-        <StepRow isTranslating={isFetching} language={targetLanguage} text={translation1} />
+        <StepRow
+          isTranslating={isFetching}
+          language={targetLanguage}
+          text={translation1}
+          languages={languages}
+          chooseLanguage={handleChooseTargetLanguage}
+        />
 
         <br />
 
