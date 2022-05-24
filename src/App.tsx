@@ -31,6 +31,10 @@ function App(): JSX.Element {
     setTargetLanguage(event.target.value);
   };
 
+  const handleRandomizeTargetLanguage = (): void => {
+    setTargetLanguage(languages[Math.floor(Math.random() * languages.length)]);
+  };
+
   const handleBeginTranslation = (): void => {
     fetchTranslation(originLanguage, targetLanguage, originText);
   };
@@ -82,6 +86,7 @@ function App(): JSX.Element {
           text={translation1}
           languages={languages}
           chooseLanguage={handleChooseTargetLanguage}
+          randomizeLanguage={handleRandomizeTargetLanguage}
         />
 
         <br />

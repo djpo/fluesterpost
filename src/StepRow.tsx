@@ -13,14 +13,24 @@ interface Props {
   text?: TranslationText;
   languages: Language[];
   chooseLanguage: (event: Event) => void;
+  randomizeLanguage: () => void;
 }
 
-function StepRow({ isTranslating, language, text, languages, chooseLanguage }: Props): JSX.Element {
+function StepRow({
+  isTranslating,
+  language,
+  text,
+  languages,
+  chooseLanguage,
+  randomizeLanguage,
+}: Props): JSX.Element {
   return (
     <div className={isTranslating ? "step-row step-row-translating" : "step-row"}>
       <div className="step-lang-box">
         <div className="step-lang-box-top">
-          <button className="step-lang-little-button">r</button>
+          <button className="step-lang-little-button" onClick={randomizeLanguage}>
+            r
+          </button>
         </div>
 
         <div className="step-lang-box-bottom">
