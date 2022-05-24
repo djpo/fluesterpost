@@ -54,6 +54,6 @@
     "prettier": "2.6.2"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,css}": "eslint"
+    "*.{js,jsx,ts,tsx}": "eslint"
   }
 }
