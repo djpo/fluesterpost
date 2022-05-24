@@ -19,10 +19,21 @@ parserOptions:
     jsx: true
   ecmaVersion: latest
   sourceType: module
+ignorePatterns: _NOTES
 rules:
   "@typescript-eslint/ban-ts-comment": 1
   quotes: [2, double]
-  comma-dangle: 1 # fix for prettier (no comma for args)
+  comma-dangle:
+    [
+      1,
+      {
+        arrays: always-multiline,
+        objects: always-multiline,
+        imports: always-multiline,
+        exports: always-multiline,
+        functions: never,
+      },
+    ]
   indent: 1
   object-curly-newline: [1, { multiline: true, consistent: true }]
   max-len: [1, { code: 100 }]
