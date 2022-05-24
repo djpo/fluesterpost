@@ -1,5 +1,5 @@
 import type { Language, TranslationText } from "./types";
-import "./StepRow.css";
+import "./Step.css";
 
 interface Event {
   target: {
@@ -16,7 +16,7 @@ interface Props {
   randomizeLanguage: () => void;
 }
 
-function StepRow({
+function Step({
   isTranslating,
   language,
   text,
@@ -55,8 +55,8 @@ function StepRow({
   );
 }
 
-StepRow.defaultProps = {
+Step.defaultProps = {
   text: "placeholder",
 };
 
-export { StepRow };
+export { Step };

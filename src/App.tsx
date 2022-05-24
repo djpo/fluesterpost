@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "./hooks/useTranslation";
 import { defaultSupportedLanguages } from "./defaultState";
 import { TranslatedText } from "./TranslatedText";
-import { StepRow } from "./StepRow";
+import { Step } from "./Step";
 import "./App.css";
 import type { Language, TranslationText } from "./types";
 
@@ -80,7 +80,7 @@ function App(): JSX.Element {
           />
         </div>
 
-        <StepRow
+        <Step
           isTranslating={isFetching}
           language={targetLanguage}
           text={translation1}
