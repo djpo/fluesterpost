@@ -19,13 +19,19 @@ const dummyResponse = {
 axios.defaults.baseURL = process.env.REACT_APP_GOOGLE_TRANSLATE_URL;
 const apiKey = process.env.REACT_APP_GOOGLE_CLOUD_API_KEY;
 
-const apiFunction = async (params: RequestParams) => {
-  // // dummy API response (so I don't use up my API quota)
-  // const timeout = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-  // await timeout(1000);
-  // return dummyResponse;
+// // dummy API response (so I don't use up my API quota)
+// // @ts-ignore
+// const apiFunction = async (params: RequestParams) => {
+//   const timeout = (ms: number) =>
+//     new Promise((resolve) => {
+//       setTimeout(resolve, ms);
+//     });
+//   await timeout(1000);
+//   return dummyResponse;
+// };
 
-  // Google Translate API call
+// Google Translate API call
+const apiFunction = async (params: RequestParams) => {
   return axios.request(params);
 };
 

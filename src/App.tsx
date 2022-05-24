@@ -45,7 +45,7 @@ function App(): JSX.Element {
         <div className="gray-box">
           origin language:
           <select
-            className="language-picker"
+            className="language-picker language-picker-origin"
             // @ts-ignore
             value={originLanguage}
             onChange={handleChooseOriginLanguage}
