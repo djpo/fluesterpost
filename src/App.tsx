@@ -3,6 +3,7 @@ import { useTranslation } from "./hooks/useTranslation";
 import { defaultSupportedLanguages } from "./defaultState";
 import { TranslatedText } from "./TranslatedText";
 import { Step } from "./Step";
+import { StepOrigin } from "./StepOrigin";
 import "./App.css";
 import type { Language, TranslationText } from "./types";
 
@@ -27,6 +28,10 @@ function App(): JSX.Element {
     setOriginLanguage(event.target.value);
   };
 
+  const handleRandomizeOriginLanguage = (): void => {
+    setOriginLanguage(languages[Math.floor(Math.random() * languages.length)]);
+  };
+
   const handleChooseTargetLanguage = (event: Event): void => {
     setTargetLanguage(event.target.value);
   };
@@ -48,35 +53,14 @@ function App(): JSX.Element {
       <div className="App-body">
         <div className="gray-box">
           origin language:
-          <select
-            className="language-picker language-picker-origin"
-            // @ts-ignore
-            value={originLanguage}
-            onChange={handleChooseOriginLanguage}
-          >
-            {languages.map((language, i) => (
-              // @ts-ignore
-              <option key={i} value={language}>
-                {language}
-              </option>
-            ))}
-          </select>
-          <button
-            className="random-button"
-            onClick={() =>
-              setOriginLanguage(languages[Math.floor(Math.random() * languages.length)])
-            }
-          >
-            randomize
-          </button>
-        </div>
-
-        <div className="origin-text">
-          <input
-            // @ts-ignore
-            value={originText}
-            onChange={(e) => setOriginText(e.target.value)}
-            placeholder="enter text"
+          <StepOrigin
+            isTranslating={isFetching}
+            language={originLanguage}
+            text={originText}
+            languages={languages}
+            chooseLanguage={handleChooseOriginLanguage}
+            randomizeLanguage={handleRandomizeOriginLanguage}
+            updateText={setOriginText}
           />
         </div>
 

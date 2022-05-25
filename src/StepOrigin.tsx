@@ -14,15 +14,17 @@ interface Props {
   languages: Language[];
   chooseLanguage: (event: Event) => void;
   randomizeLanguage: () => void;
+  updateText: (arg0: any) => void;
 }
 
-function Step({
+function StepOrigin({
   isTranslating,
   language,
   text,
   languages,
   chooseLanguage,
   randomizeLanguage,
+  updateText,
 }: Props): JSX.Element {
   return (
     <div className={isTranslating ? "step-row step-row-translating" : "step-row"}>
@@ -51,14 +53,21 @@ function Step({
       </div>
 
       <div className="step-text">
-        <p>{text || "placeholder"}</p>
+        <textarea
+          type="text"
+          wrap="soft"
+          // @ts-ignore
+          value={text}
+          onChange={(e) => updateText(e.target.value)}
+          placeholder="enter text"
+        />
       </div>
     </div>
   );
 }
 
-Step.defaultProps = {
+StepOrigin.defaultProps = {
   text: "placeholder",
 };
 
-export { Step };
+export { StepOrigin };
