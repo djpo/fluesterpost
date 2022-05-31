@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useTranslation } from "./hooks/useTranslation";
 import { defaultSupportedLanguages } from "./defaultState";
-import { TranslatedText } from "./TranslatedText";
 import { Step } from "./Step";
 import { StepOrigin } from "./StepOrigin";
+import { StepFinal } from "./StepFinal";
 import "./App.css";
 import type { Language, TranslationText } from "./types";
 
@@ -51,6 +51,8 @@ function App(): JSX.Element {
       </header>
 
       <div className="App-body">
+        {error && <p>error: {error.message}</p>}
+
         <div className="gray-box">
           origin language:
           <StepOrigin
@@ -79,10 +81,7 @@ function App(): JSX.Element {
           translate
         </button>
 
-        <div className="translation">
-          {error && <p>error: {error.message}</p>}
-          <TranslatedText isTranslating={isFetching} text={translation2} />
-        </div>
+        <StepFinal isTranslating={isFetching} originLanguage={originLanguage} text={translation2} />
       </div>
     </div>
   );

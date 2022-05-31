@@ -39,6 +39,15 @@
   align-items: center;
 }
 
+.language-picker {
+  min-width: 66px;
+}
+
+.language-picker-placeholder {
+  min-width: 66px;
+  text-align: center;
+}
+
 .step-text {
   min-width: 300px;
   max-width: 50vw;
