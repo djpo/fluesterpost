@@ -40,9 +40,9 @@ function Step({
             value={language}
             onChange={chooseLanguage}
           >
-            {languages.map((languageOption, i) => (
+            {languages.map((languageOption) => (
               // @ts-ignore
-              <option key={i} value={languageOption}>
+              <option key={languageOption} value={languageOption}>
                 {languageOption}
               </option>
             ))}

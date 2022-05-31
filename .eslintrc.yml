@@ -42,9 +42,9 @@ rules:
   import/extensions: 0
   react/jsx-filename-extension: [1, { extensions: [.tsx, .ts] }]
   react/button-has-type: 0
+  react/jsx-one-expression-per-line: [0, { allow: single-child }]
   arrow-body-style: 1 # fix
   implicit-arrow-linebreak: 1 # fix
   react/function-component-definition: 1 # fix
   react/no-array-index-key: 1 # fix
   react/jsx-curly-newline: 1 # fix
-  react/jsx-one-expression-per-line: 1 # fix
