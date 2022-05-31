@@ -24,18 +24,17 @@ function App(): JSX.Element {
   const [originText, setOriginText] = useState<TranslationText>("");
   const { isFetching, error, translation1, translation2, fetchTranslation } = useTranslation();
 
+  const langsWithoutOrigin = languages.filter((lang) => lang !== originLanguage);
+
   const handleChooseOriginLanguage = (event: Event): void => {
     setOriginLanguage(event.target.value);
   };
-
   const handleChooseTargetLanguage = (event: Event): void => {
     setTargetLanguage(event.target.value);
   };
-
   const handleRandomizeTargetLanguage = (): void => {
     setTargetLanguage(languages[Math.floor(Math.random() * languages.length)]);
   };
-
   const handleBeginTranslation = (): void => {
     fetchTranslation(originLanguage, targetLanguage, originText);
   };
@@ -65,7 +64,7 @@ function App(): JSX.Element {
           isTranslating={isFetching}
           language={targetLanguage}
           text={translation1}
-          languages={languages}
+          languages={langsWithoutOrigin}
           chooseLanguage={handleChooseTargetLanguage}
           randomizeLanguage={handleRandomizeTargetLanguage}
         />
