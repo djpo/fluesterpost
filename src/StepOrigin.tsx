@@ -13,7 +13,6 @@ interface Props {
   text?: TranslationText;
   languages: Language[];
   chooseLanguage: (event: Event) => void;
-  randomizeLanguage: () => void;
   updateText: (arg0: any) => void;
 }
 
@@ -23,18 +22,11 @@ function StepOrigin({
   text,
   languages,
   chooseLanguage,
-  randomizeLanguage,
   updateText,
 }: Props): JSX.Element {
   return (
     <div className={isTranslating ? "step-row step-row-translating" : "step-row"}>
       <div className="step-lang-box">
-        <div className="step-lang-box-top">
-          <button className="step-lang-little-button" onClick={randomizeLanguage}>
-            r
-          </button>
-        </div>
-
         <div className="step-lang-box-bottom">
           <select
             className="language-picker"

@@ -28,10 +28,6 @@ function App(): JSX.Element {
     setOriginLanguage(event.target.value);
   };
 
-  const handleRandomizeOriginLanguage = (): void => {
-    setOriginLanguage(languages[Math.floor(Math.random() * languages.length)]);
-  };
-
   const handleChooseTargetLanguage = (event: Event): void => {
     setTargetLanguage(event.target.value);
   };
@@ -61,7 +57,6 @@ function App(): JSX.Element {
             text={originText}
             languages={languages}
             chooseLanguage={handleChooseOriginLanguage}
-            randomizeLanguage={handleRandomizeOriginLanguage}
             updateText={setOriginText}
           />
         </div>
