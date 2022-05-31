@@ -71,7 +71,11 @@ function App(): JSX.Element {
 
         <br />
 
-        <button disabled={isFetching} className="gray-box" onClick={() => handleBeginTranslation()}>
+        <button
+          disabled={isFetching || originText === ""}
+          className="gray-box"
+          onClick={() => handleBeginTranslation()}
+        >
           translate
         </button>
 
