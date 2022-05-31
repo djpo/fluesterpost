@@ -4,7 +4,7 @@ import "./Step.css";
 interface Props {
   isTranslating: boolean;
   originLanguage: Language;
-  text?: TranslationText;
+  text: TranslationText;
 }
 
 function StepFinal({ isTranslating, originLanguage, text }: Props): JSX.Element {
@@ -12,19 +12,15 @@ function StepFinal({ isTranslating, originLanguage, text }: Props): JSX.Element 
     <div className={isTranslating ? "step-row step-row-translating" : "step-row"}>
       <div className="step-lang-box">
         <div className="step-lang-box-bottom">
-          <p className="language-picker-placeholder">{originLanguage}</p>
+          <p className="language-picker-spacer">{originLanguage}</p>
         </div>
       </div>
 
       <div className="step-text">
-        <p>{text || "placeholder"}</p>
+        <p>{text}</p>
       </div>
     </div>
   );
 }
-
-StepFinal.defaultProps = {
-  text: "",
-};
 
 export { StepFinal };

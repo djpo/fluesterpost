@@ -10,7 +10,7 @@ interface Event {
 interface Props {
   isTranslating: boolean;
   language: Language;
-  text?: TranslationText;
+  text: TranslationText;
   languages: Language[];
   chooseLanguage: (event: Event) => void;
   randomizeLanguage: () => void;
@@ -51,14 +51,10 @@ function Step({
       </div>
 
       <div className="step-text">
-        <p>{text || "placeholder"}</p>
+        <p>{text || ""}</p>
       </div>
     </div>
   );
 }
-
-Step.defaultProps = {
-  text: "placeholder",
-};
 
 export { Step };

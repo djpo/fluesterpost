@@ -36,8 +36,8 @@ const apiFunction = async (params: RequestParams) => {
 };
 
 const useTranslation = () => {
-  const [translation1, setTranslation1] = useState<TranslationText>(null);
-  const [translation2, setTranslation2] = useState<TranslationText>(null);
+  const [translation1, setTranslation1] = useState<TranslationText>("");
+  const [translation2, setTranslation2] = useState<TranslationText>("");
   const [isFetching, setIsFetching] = useState<boolean>(false);
   const [error, setError] = useState<Error>(null);
 
@@ -53,8 +53,8 @@ const useTranslation = () => {
 
     try {
       setIsFetching(true);
-      setTranslation1(null);
-      setTranslation2(null);
+      setTranslation1("");
+      setTranslation2("");
       setError(null);
 
       // translate from origin to step 1

@@ -10,7 +10,7 @@ interface Event {
 interface Props {
   isTranslating: boolean;
   language: Language;
-  text?: TranslationText;
+  text: TranslationText;
   languages: Language[];
   chooseLanguage: (event: Event) => void;
   updateText: (arg0: any) => void;
@@ -46,7 +46,6 @@ function StepOrigin({
 
       <div className="step-text">
         <textarea
-          type="text"
           wrap="soft"
           // @ts-ignore
           value={text}
@@ -57,9 +56,5 @@ function StepOrigin({
     </div>
   );
 }
-
-StepOrigin.defaultProps = {
-  text: "placeholder",
-};
 
 export { StepOrigin };
