@@ -26,6 +26,10 @@ function Step({
 }: Props): JSX.Element {
   return (
     <div className={isTranslating ? "step-row step-row-translating" : "step-row"}>
+      <div className="step-left-line-container">
+        <div className="step-left-line" />
+      </div>
+
       <div className="step-lang-box">
         <div className="step-lang-box-top">
           <button className="step-lang-little-button" onClick={randomizeLanguage}>

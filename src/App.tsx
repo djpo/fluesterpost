@@ -48,17 +48,14 @@ function App(): JSX.Element {
       <div className="App-body">
         {error && <p>error: {error.message}</p>}
 
-        <div className="gray-box">
-          origin language:
-          <StepOrigin
-            isTranslating={isFetching}
-            language={originLanguage}
-            text={originText}
-            languages={languages}
-            chooseLanguage={handleChooseOriginLanguage}
-            updateText={setOriginText}
-          />
-        </div>
+        <StepOrigin
+          isTranslating={isFetching}
+          language={originLanguage}
+          text={originText}
+          languages={languages}
+          chooseLanguage={handleChooseOriginLanguage}
+          updateText={setOriginText}
+        />
 
         <Step
           isTranslating={isFetching}
@@ -69,17 +66,16 @@ function App(): JSX.Element {
           randomizeLanguage={handleRandomizeTargetLanguage}
         />
 
-        <br />
+        <StepFinal isTranslating={isFetching} originLanguage={originLanguage} text={translation2} />
 
+        <br />
         <button
           disabled={isFetching || originText === ""}
-          className="gray-box"
+          className="primary-button"
           onClick={() => handleBeginTranslation()}
         >
           translate
         </button>
-
-        <StepFinal isTranslating={isFetching} originLanguage={originLanguage} text={translation2} />
       </div>
     </div>
   );
