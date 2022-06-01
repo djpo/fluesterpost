@@ -86,12 +86,15 @@
 }
 
 .step-text > p {
-  border: 1px solid purple;
+  margin: 0px;
 }
 
 .step-text > textarea {
-  border: 1px solid red;
-  background-color: rgba(255, 255, 255, 0.4);
+  margin-left: -5px;
+  margin-top: -5px;
   width: 100%;
   height: 100%;
+  border: 0 solid rgb(0, 0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 5px;
 }
