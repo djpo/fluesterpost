@@ -1,6 +1,6 @@
-import type { Language } from "./types";
+import type { Language, TranslationText, Step } from "../types";
 
-export const defaultSupportedLanguages: Language[] = [
+export const defaultSupportedLangs: Language[] = [
   "am",
   "ar",
   "az",
@@ -112,3 +112,31 @@ export const defaultSupportedLanguages: Language[] = [
   "zh-TW",
   "zu",
 ];
+
+export const defaultOriginLang: Language = defaultSupportedLangs[15]; // en
+
+export const defaultOriginText: TranslationText = "translate me, if you dare";
+
+export const defaultSteps: Step[] = [
+  {
+    lang: defaultSupportedLangs[13], // de
+    text: "initial step 1",
+    isFetching: false,
+  },
+  {
+    lang: defaultSupportedLangs[22], // fr
+    text: "initial step 2",
+    isFetching: false,
+  },
+  {
+    lang: defaultSupportedLangs[15], // en
+    text: "initial step 3",
+    isFetching: false,
+  },
+];
+
+export const defaultStepFinal: Step = {
+  lang: defaultSupportedLangs[15], // en
+  text: "initial StepFinal",
+  isFetching: false,
+};

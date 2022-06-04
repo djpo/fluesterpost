@@ -1,42 +1,52 @@
-import { useState } from "react";
-import { useTranslation } from "./hooks/useTranslation";
-import { defaultSupportedLanguages } from "./defaultState";
+import { connect, useSelector, useDispatch } from "react-redux";
+import {
+  updateOriginLang as updateOriginLangAction,
+  updateOriginText as updateOriginTextAction,
+  updateStepLang as updateStepLangAction,
+  randomizeStepLang as randomizeStepLangAction,
+} from "./redux/actions";
+import {
+  selectSupportedLangs,
+  selectOriginLang,
+  selectOriginText,
+  selectSteps,
+  selectIsFetchingAny,
+  selectError,
+} from "./redux/selectors";
 import { Step } from "./Step";
 import { StepOrigin } from "./StepOrigin";
 import { StepFinal } from "./StepFinal";
 import "./App.css";
-import type { Language, TranslationText } from "./types";
+import type { Language, TranslationText, Step as StepType, Error } from "./types";
 
-interface Event {
-  target: {
-    value: string;
-  };
+interface Props {
+  updateOriginLang: (newLang: Language) => void;
+  updateOriginText: (newText: TranslationText) => void;
+  updateStepLang: (indexToUpdate: number, newLang: Language) => void;
+  randomizeStepLang: (indexToUpdate: number, langsWithoutOrigin: Language[]) => void;
 }
 
-function App(): JSX.Element {
-  const [languages] = useState<Language[]>(defaultSupportedLanguages);
-  const [originLanguage, setOriginLanguage] = useState<Language>(
-    defaultSupportedLanguages[15] // en
-  );
-  const [targetLanguage, setTargetLanguage] = useState<Language>(
-    defaultSupportedLanguages[13] // de
-  );
-  const [originText, setOriginText] = useState<TranslationText>("");
-  const { isFetching, error, translation1, translation2, fetchTranslation } = useTranslation();
+function AppUnconnected({
+  updateOriginLang,
+  updateOriginText,
+  updateStepLang,
+  randomizeStepLang,
+}: Props): JSX.Element {
+  const supportedLangs: Language[] = useSelector(selectSupportedLangs);
+  const originLang: Language = useSelector(selectOriginLang);
+  const originText: TranslationText = useSelector(selectOriginText);
+  const steps: StepType[] = useSelector(selectSteps);
+  const isFetchingAny: boolean = useSelector(selectIsFetchingAny);
+  const error: Error = useSelector(selectError);
+  // @ts-ignore
+  const errorMessage: string = error ? error.message : "unknown error";
 
-  const langsWithoutOrigin = languages.filter((lang) => lang !== originLanguage);
+  const langsWithoutOrigin = supportedLangs.filter((lang) => lang !== originLang);
 
-  const handleChooseOriginLanguage = (event: Event): void => {
-    setOriginLanguage(event.target.value);
-  };
-  const handleChooseTargetLanguage = (event: Event): void => {
-    setTargetLanguage(event.target.value);
-  };
-  const handleRandomizeTargetLanguage = (): void => {
-    setTargetLanguage(languages[Math.floor(Math.random() * languages.length)]);
-  };
+  const dispatch = useDispatch();
+
   const handleBeginTranslation = (): void => {
-    fetchTranslation(originLanguage, targetLanguage, originText);
+    dispatch({ type: "FETCH_TRANSLATIONS" });
   };
 
   return (
@@ -46,31 +56,43 @@ function App(): JSX.Element {
       </header>
 
       <div className="App-body">
-        {error && <p>error: {error.message}</p>}
+        {error && <p>error: {errorMessage}</p>}
 
         <StepOrigin
-          isTranslating={isFetching}
-          language={originLanguage}
+          isTranslating={isFetchingAny}
+          // isLocked={isFetchingAny}
+          lang={originLang}
           text={originText}
-          languages={languages}
-          chooseLanguage={handleChooseOriginLanguage}
-          updateText={setOriginText}
+          langs={supportedLangs}
+          chooseLang={updateOriginLang}
+          updateText={updateOriginText}
         />
 
-        <Step
-          isTranslating={isFetching}
-          language={targetLanguage}
-          text={translation1}
-          languages={langsWithoutOrigin}
-          chooseLanguage={handleChooseTargetLanguage}
-          randomizeLanguage={handleRandomizeTargetLanguage}
-        />
-
-        <StepFinal isTranslating={isFetching} originLanguage={originLanguage} text={translation2} />
+        {steps.map((step: StepType, stepIndex: number) =>
+          stepIndex === steps.length - 1 ? (
+            <StepFinal
+              key={stepIndex.toString()}
+              isTranslating={step.isFetching}
+              originLang={step.lang}
+              text={step.text}
+            />
+          ) : (
+            <Step
+              key={stepIndex.toString()}
+              isTranslating={step.isFetching}
+              // isLocked={isFetchingAny}
+              lang={step.lang}
+              text={step.text}
+              langs={langsWithoutOrigin}
+              chooseLang={(newLang) => updateStepLang(stepIndex, newLang)}
+              randomizeLang={() => randomizeStepLang(stepIndex, langsWithoutOrigin)}
+            />
+          )
+        )}
 
         <br />
         <button
-          disabled={isFetching || originText === ""}
+          disabled={isFetchingAny || originText === ""}
           className="primary-button"
           onClick={() => handleBeginTranslation()}
         >
@@ -80,5 +102,15 @@ function App(): JSX.Element {
     </div>
   );
 }
+
+const mapStateToProps = () => ({});
+const mapDispatchToProps = {
+  updateOriginLang: updateOriginLangAction,
+  updateOriginText: updateOriginTextAction,
+  updateStepLang: updateStepLangAction,
+  randomizeStepLang: randomizeStepLangAction,
+};
+
+const App = connect(mapStateToProps, mapDispatchToProps)(AppUnconnected);
 
 export { App };

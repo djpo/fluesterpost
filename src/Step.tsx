@@ -1,29 +1,16 @@
-import type { Language, TranslationText } from "./types";
+import type { Language, TranslationText, Event } from "./types";
 import "./Step.css";
-
-interface Event {
-  target: {
-    value: string;
-  };
-}
 
 interface Props {
   isTranslating: boolean;
-  language: Language;
+  lang: Language;
   text: TranslationText;
-  languages: Language[];
-  chooseLanguage: (event: Event) => void;
-  randomizeLanguage: () => void;
+  langs: Language[];
+  chooseLang: (newLang: Language) => void;
+  randomizeLang: () => void;
 }
 
-function Step({
-  isTranslating,
-  language,
-  text,
-  languages,
-  chooseLanguage,
-  randomizeLanguage,
-}: Props): JSX.Element {
+function Step({ isTranslating, lang, text, langs, chooseLang, randomizeLang }: Props): JSX.Element {
   return (
     <div className={isTranslating ? "step-row step-row-translating" : "step-row"}>
       <div className="step-left-line-container">
@@ -32,7 +19,7 @@ function Step({
 
       <div className="step-lang-box">
         <div className="step-lang-box-top">
-          <button className="step-lang-little-button" onClick={randomizeLanguage}>
+          <button className="step-lang-little-button" onClick={randomizeLang}>
             r
           </button>
         </div>
@@ -41,13 +28,13 @@ function Step({
           <select
             className="language-picker"
             // @ts-ignore
-            value={language}
-            onChange={chooseLanguage}
+            value={lang}
+            onChange={(e: Event) => chooseLang(e.target.value)}
           >
-            {languages.map((languageOption) => (
+            {langs.map((langOption) => (
               // @ts-ignore
-              <option key={languageOption} value={languageOption}>
-                {languageOption}
+              <option key={langOption} value={langOption}>
+                {langOption}
               </option>
             ))}
           </select>

@@ -38,6 +38,8 @@ rules:
   object-curly-newline: [1, { multiline: true, consistent: true }]
   max-len: [1, { code: 100 }]
   operator-linebreak: 1
+  no-confusing-arrow: 1 # fix
+  function-paren-newline: 1 # fix
   import/prefer-default-export: 0
   import/extensions: 0
   react/jsx-filename-extension: [1, { extensions: [.tsx, .ts] }]

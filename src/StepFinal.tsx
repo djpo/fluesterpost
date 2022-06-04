@@ -3,11 +3,11 @@ import "./Step.css";
 
 interface Props {
   isTranslating: boolean;
-  originLanguage: Language;
+  originLang: Language;
   text: TranslationText;
 }
 
-function StepFinal({ isTranslating, originLanguage, text }: Props): JSX.Element {
+function StepFinal({ isTranslating, originLang, text }: Props): JSX.Element {
   return (
     <div className={isTranslating ? "step-row step-row-translating" : "step-row"}>
       <div className="step-left-line-container">
@@ -16,7 +16,7 @@ function StepFinal({ isTranslating, originLanguage, text }: Props): JSX.Element 
 
       <div className="step-lang-box step-lang-box-origin">
         <div className="step-lang-box-bottom">
-          <p className="language-picker-spacer">{originLanguage}</p>
+          <p className="language-picker-spacer">{originLang}</p>
         </div>
       </div>
 

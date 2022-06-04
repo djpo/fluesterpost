@@ -1,27 +1,21 @@
-import type { Language, TranslationText } from "./types";
+import type { Language, TranslationText, Event } from "./types";
 import "./Step.css";
-
-interface Event {
-  target: {
-    value: string;
-  };
-}
 
 interface Props {
   isTranslating: boolean;
-  language: Language;
+  lang: Language;
   text: TranslationText;
-  languages: Language[];
-  chooseLanguage: (event: Event) => void;
-  updateText: (arg0: any) => void;
+  langs: Language[];
+  chooseLang: (newLang: Language) => void;
+  updateText: (newText: TranslationText) => void;
 }
 
 function StepOrigin({
   isTranslating,
-  language,
+  lang,
   text,
-  languages,
-  chooseLanguage,
+  langs,
+  chooseLang,
   updateText,
 }: Props): JSX.Element {
   return (
@@ -35,13 +29,13 @@ function StepOrigin({
           <select
             className="language-picker"
             // @ts-ignore
-            value={language}
-            onChange={chooseLanguage}
+            value={lang}
+            onChange={(e: Event) => chooseLang(e.target.value)}
           >
-            {languages.map((languageOption) => (
+            {langs.map((langOption) => (
               // @ts-ignore
-              <option key={languageOption} value={languageOption}>
-                {languageOption}
+              <option key={langOption} value={langOption}>
+                {langOption}
               </option>
             ))}
           </select>
