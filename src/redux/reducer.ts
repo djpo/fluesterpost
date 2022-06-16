@@ -7,6 +7,8 @@ import {
   UPDATE_STEP_IS_FETCHING,
   UPDATE_ERROR,
   CLEAR_ALL_STEPS_TEXT,
+  ADD_STEP,
+  // REMOVE_STEP,
 } from "./actionTypes";
 import {
   defaultSupportedLangs,
@@ -85,6 +87,28 @@ export function appReducer(state = initialState, { type, payload }) {
         steps: state.steps.map((step) => ({ ...step, text: "" })),
       };
     }
+    case ADD_STEP: {
+      const allButLastStep = state.steps.splice(0, state.steps.length - 1);
+      const lastStep = state.steps[state.steps.length - 1];
+      return {
+        ...state,
+        steps: [
+          ...allButLastStep,
+          {
+            lang: payload.newLang,
+            text: "",
+            isFetching: false,
+          },
+          lastStep,
+        ],
+      };
+    }
+    // case REMOVE_STEP: {
+    //   return {
+    //     ...state,
+    //     steps: state.steps.filter((step, i) => i !== payload.stepIndexToRemove),
+    //   };
+    // }
     default:
       return state;
   }

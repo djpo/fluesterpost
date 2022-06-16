@@ -4,6 +4,7 @@ import {
   updateOriginText as updateOriginTextAction,
   updateStepLang as updateStepLangAction,
   randomizeStepLang as randomizeStepLangAction,
+  addStep as addStepAction,
 } from "./redux/actions";
 import {
   selectSupportedLangs,
@@ -24,6 +25,7 @@ interface Props {
   updateOriginText: (newText: TranslationText) => void;
   updateStepLang: (indexToUpdate: number, newLang: Language) => void;
   randomizeStepLang: (indexToUpdate: number, langsWithoutOrigin: Language[]) => void;
+  addStep: (langsWithoutOrigin: Language[]) => void;
 }
 
 function AppUnconnected({
@@ -31,6 +33,7 @@ function AppUnconnected({
   updateOriginText,
   updateStepLang,
   randomizeStepLang,
+  addStep,
 }: Props): JSX.Element {
   const supportedLangs: Language[] = useSelector(selectSupportedLangs);
   const originLang: Language = useSelector(selectOriginLang);
@@ -92,6 +95,15 @@ function AppUnconnected({
 
         <br />
         <button
+          disabled={isFetchingAny}
+          className="primary-button"
+          onClick={() => addStep(langsWithoutOrigin)}
+        >
+          add step
+        </button>
+
+        <br />
+        <button
           disabled={isFetchingAny || originText === ""}
           className="primary-button"
           onClick={() => handleBeginTranslation()}
@@ -109,6 +121,7 @@ const mapDispatchToProps = {
   updateOriginText: updateOriginTextAction,
   updateStepLang: updateStepLangAction,
   randomizeStepLang: randomizeStepLangAction,
+  addStep: addStepAction,
 };
 
 const App = connect(mapStateToProps, mapDispatchToProps)(AppUnconnected);

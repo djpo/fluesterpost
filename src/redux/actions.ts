@@ -7,6 +7,7 @@ import {
   UPDATE_STEP_IS_FETCHING,
   UPDATE_ERROR,
   CLEAR_ALL_STEPS_TEXT,
+  ADD_STEP,
 } from "./actionTypes";
 import type { Language, TranslationText, Error } from "../types";
 
@@ -69,4 +70,12 @@ export function updateError(newError: Error) {
 
 export function clearAllStepsText() {
   return { type: CLEAR_ALL_STEPS_TEXT };
+}
+
+export function addStep(langsWithoutOrigin: Language[]) {
+  const randomLang = langsWithoutOrigin[Math.floor(Math.random() * langsWithoutOrigin.length)];
+  return {
+    type: ADD_STEP,
+    payload: { newLang: randomLang },
+  };
 }

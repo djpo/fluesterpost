@@ -120,23 +120,17 @@ export const defaultOriginText: TranslationText = "translate me, if you dare";
 export const defaultSteps: Step[] = [
   {
     lang: defaultSupportedLangs[13], // de
-    text: "initial step 1",
+    text: "",
     isFetching: false,
   },
   {
     lang: defaultSupportedLangs[22], // fr
-    text: "initial step 2",
+    text: "",
     isFetching: false,
   },
   {
     lang: defaultSupportedLangs[15], // en
-    text: "initial step 3",
+    text: "",
     isFetching: false,
   },
 ];
-
-export const defaultStepFinal: Step = {
-  lang: defaultSupportedLangs[15], // en
-  text: "initial StepFinal",
-  isFetching: false,
-};
