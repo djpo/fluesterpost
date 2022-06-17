@@ -8,7 +8,7 @@ import {
   UPDATE_ERROR,
   CLEAR_ALL_STEPS_TEXT,
   ADD_STEP,
-  // REMOVE_STEP,
+  REMOVE_STEP,
 } from "./actionTypes";
 import {
   defaultSupportedLangs,
@@ -103,12 +103,13 @@ export function appReducer(state = initialState, { type, payload }) {
         ],
       };
     }
-    // case REMOVE_STEP: {
-    //   return {
-    //     ...state,
-    //     steps: state.steps.filter((step, i) => i !== payload.stepIndexToRemove),
-    //   };
-    // }
+    case REMOVE_STEP: {
+      return {
+        ...state,
+        // @ts-ignore
+        steps: state.steps.filter((step, i) => i !== payload.stepIndexToRemove),
+      };
+    }
     default:
       return state;
   }

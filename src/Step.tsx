@@ -2,15 +2,26 @@ import type { Language, TranslationText, Event } from "./types";
 import "./Step.css";
 
 interface Props {
+  hasRemoveButton: boolean;
   isTranslating: boolean;
   lang: Language;
   text: TranslationText;
   langs: Language[];
   chooseLang: (newLang: Language) => void;
   randomizeLang: () => void;
+  removeStep: () => void;
 }
 
-function Step({ isTranslating, lang, text, langs, chooseLang, randomizeLang }: Props): JSX.Element {
+function Step({
+  hasRemoveButton,
+  isTranslating,
+  lang,
+  text,
+  langs,
+  chooseLang,
+  randomizeLang,
+  removeStep,
+}: Props): JSX.Element {
   return (
     <div className={isTranslating ? "step-row step-row-translating" : "step-row"}>
       <div className="step-left-line-container">
@@ -22,6 +33,11 @@ function Step({ isTranslating, lang, text, langs, chooseLang, randomizeLang }: P
           <button className="step-lang-little-button" onClick={randomizeLang}>
             r
           </button>
+          {hasRemoveButton && (
+            <button className="step-lang-little-button" onClick={removeStep}>
+              x
+            </button>
+          )}
         </div>
 
         <div className="step-lang-box-bottom">

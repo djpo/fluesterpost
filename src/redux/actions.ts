@@ -8,6 +8,7 @@ import {
   UPDATE_ERROR,
   CLEAR_ALL_STEPS_TEXT,
   ADD_STEP,
+  REMOVE_STEP,
 } from "./actionTypes";
 import type { Language, TranslationText, Error } from "../types";
 
@@ -77,5 +78,12 @@ export function addStep(langsWithoutOrigin: Language[]) {
   return {
     type: ADD_STEP,
     payload: { newLang: randomLang },
+  };
+}
+
+export function removeStep(stepIndexToRemove: number) {
+  return {
+    type: REMOVE_STEP,
+    payload: { stepIndexToRemove },
   };
 }
