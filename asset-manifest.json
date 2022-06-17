@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/fluesterpost/static/css/main.168e7bcb.css",
+    "main.js": "/fluesterpost/static/js/main.95de49e6.js",
+    "static/js/787.28b78f8e.chunk.js": "/fluesterpost/static/js/787.28b78f8e.chunk.js",
+    "index.html": "/fluesterpost/index.html",
+    "main.168e7bcb.css.map": "/fluesterpost/static/css/main.168e7bcb.css.map",
+    "main.95de49e6.js.map": "/fluesterpost/static/js/main.95de49e6.js.map",
+    "787.28b78f8e.chunk.js.map": "/fluesterpost/static/js/787.28b78f8e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.168e7bcb.css",
+    "static/js/main.95de49e6.js"
+  ]
+}
