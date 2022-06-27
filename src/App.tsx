@@ -13,13 +13,13 @@ import {
   selectOriginText,
   selectSteps,
   selectIsFetchingAny,
-  selectError,
+  selectErrorMessage,
 } from "./redux/selectors";
 import { Step } from "./Step";
 import { StepOrigin } from "./StepOrigin";
 import { StepFinal } from "./StepFinal";
 import "./App.css";
-import type { Language, TranslationText, Step as StepType, Error } from "./types";
+import type { Language, TranslationText, Step as StepType, ErrorMessage } from "./types";
 
 interface Props {
   updateOriginLang: (newLang: Language) => void;
@@ -43,9 +43,7 @@ function AppUnconnected({
   const originText: TranslationText = useSelector(selectOriginText);
   const steps: StepType[] = useSelector(selectSteps);
   const isFetchingAny: boolean = useSelector(selectIsFetchingAny);
-  const error: Error = useSelector(selectError);
-  // @ts-ignore
-  const errorMessage: string = error ? error.message : "unknown error";
+  const errorMessage: ErrorMessage = useSelector(selectErrorMessage);
 
   const langsWithoutOrigin = supportedLangs.filter((lang) => lang !== originLang);
 
@@ -62,11 +60,10 @@ function AppUnconnected({
       </header>
 
       <div className="App-body">
-        {error && <p>error: {errorMessage}</p>}
+        {errorMessage && <p>error: {errorMessage}</p>}
 
         <StepOrigin
           isTranslating={isFetchingAny}
-          // isLocked={isFetchingAny}
           lang={originLang}
           text={originText}
           langs={supportedLangs}
@@ -87,7 +84,6 @@ function AppUnconnected({
               key={stepIndex.toString()}
               hasRemoveButton={stepIndex !== 0}
               isTranslating={step.isFetching}
-              // isLocked={isFetchingAny}
               lang={step.lang}
               text={step.text}
               langs={langsWithoutOrigin}

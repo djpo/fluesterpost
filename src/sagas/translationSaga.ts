@@ -56,7 +56,7 @@ function* fetchAllTranslations() {
   } catch (err: any) {
     yield put({
       type: UPDATE_ERROR,
-      payload: { newError: err.message },
+      payload: { newError: `${err.code} - ${err.message}` },
     });
   } finally {
     yield put({ type: UPDATE_IS_FETCHING_ANY, payload: { newIsFetchingAny: false } });

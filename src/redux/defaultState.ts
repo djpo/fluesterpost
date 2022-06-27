@@ -1,4 +1,4 @@
-import type { Language, TranslationText, Step } from "../types";
+import type { Language, TranslationText, Step, ErrorMessage } from "../types";
 
 export const defaultSupportedLangs: Language[] = [
   "am",
@@ -134,3 +134,5 @@ export const defaultSteps: Step[] = [
     isFetching: false,
   },
 ];
+
+export const defaultErrorMessage: ErrorMessage = "";

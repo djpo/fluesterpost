@@ -15,6 +15,7 @@ import {
   defaultOriginLang,
   defaultOriginText,
   defaultSteps,
+  defaultErrorMessage,
 } from "./defaultState";
 
 const initialState = {
@@ -23,7 +24,7 @@ const initialState = {
   originText: defaultOriginText,
   steps: defaultSteps,
   isFetchingAny: false,
-  error: null,
+  errorMessage: defaultErrorMessage,
 };
 
 /* @ts-ignore */ /* eslint-disable-next-line default-param-last */
@@ -78,7 +79,7 @@ export function appReducer(state = initialState, { type, payload }) {
     case UPDATE_ERROR: {
       return {
         ...state,
-        error: payload.newError,
+        errorMessage: payload.newError,
       };
     }
     case CLEAR_ALL_STEPS_TEXT: {

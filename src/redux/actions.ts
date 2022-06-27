@@ -10,7 +10,7 @@ import {
   ADD_STEP,
   REMOVE_STEP,
 } from "./actionTypes";
-import type { Language, TranslationText, Error } from "../types";
+import type { Language, TranslationText, ErrorMessage } from "../types";
 
 export function updateOriginLang(newLang: Language) {
   return {
@@ -62,7 +62,7 @@ export function updateStepIsFetching(stepIndexToUpdate: number, newIsFetching: b
   };
 }
 
-export function updateError(newError: Error) {
+export function updateError(newError: ErrorMessage) {
   return {
     type: UPDATE_ERROR,
     payload: { newError },
