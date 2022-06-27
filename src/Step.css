@@ -28,8 +28,10 @@
 .step-left-line-final {
   border-left: 0;
   border-top: 0;
-  height: 0px;
+  height: 68px;
+  margin-top: -28px;
   border-bottom: 1.5px solid black;
+  border-left: 1.5px solid black;
 }
 
 .step-lang-box {

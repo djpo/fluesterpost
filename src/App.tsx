@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { connect, useSelector, useDispatch } from "react-redux";
 import {
   updateOriginLang as updateOriginLangAction,
@@ -73,12 +74,24 @@ function AppUnconnected({
 
         {steps.map((step: StepType, stepIndex: number) =>
           stepIndex === steps.length - 1 ? (
-            <StepFinal
-              key={stepIndex.toString()}
-              isTranslating={step.isFetching}
-              originLang={step.lang}
-              text={step.text}
-            />
+            <Fragment key="final_step_container">
+              <br />
+              <button
+                disabled={isFetchingAny}
+                key="button_add_step"
+                className="primary-button"
+                onClick={() => addStep(langsWithoutOrigin)}
+              >
+                add step
+              </button>
+
+              <StepFinal
+                key="final_step"
+                isTranslating={step.isFetching}
+                originLang={step.lang}
+                text={step.text}
+              />
+            </Fragment>
           ) : (
             <Step
               key={stepIndex.toString()}
@@ -93,15 +106,6 @@ function AppUnconnected({
             />
           )
         )}
-
-        <br />
-        <button
-          disabled={isFetchingAny}
-          className="primary-button"
-          onClick={() => addStep(langsWithoutOrigin)}
-        >
-          add step
-        </button>
 
         <br />
         <button
