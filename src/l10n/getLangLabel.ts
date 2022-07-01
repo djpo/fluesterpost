@@ -9,7 +9,7 @@ export function getLangLabel(langCode: Language) {
     if (langLabels[langCode][interfaceLang]) {
       return langLabels[langCode][interfaceLang];
     }
-    return langCode;
+    return `(${langCode})`;
   }
-  return langCode;
+  return `(${langCode})`;
 }
