@@ -1,4 +1,4 @@
-export type Language = string | null;
+export type Language = string;
 
 export type TranslationText = string;
 

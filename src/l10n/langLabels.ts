@@ -1,4 +1,13 @@
-export const langLabels = {
+import type { Language } from "../types";
+import { InterfaceLang } from "./interfaceLangs";
+
+type LangNameSet = Record<InterfaceLang | "fr", string>;
+
+interface LangNameList {
+  [key: Language]: LangNameSet;
+}
+
+export const langLabels: LangNameList = {
   aa: {
     en: "Afar",
     fr: "afar",
