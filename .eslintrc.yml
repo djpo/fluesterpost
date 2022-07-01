@@ -50,3 +50,5 @@ rules:
   react/function-component-definition: 1 # fix
   react/no-array-index-key: 1 # fix
   react/jsx-curly-newline: 1 # fix
+  no-shadow: 0
+  "@typescript-eslint/no-shadow": 2
