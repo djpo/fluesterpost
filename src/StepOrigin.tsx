@@ -1,3 +1,4 @@
+import { getLangLabel } from "./l10n/getLangLabel";
 import type { Language, TranslationText, Event } from "./types";
 import "./Step.css";
 
@@ -32,10 +33,10 @@ function StepOrigin({
             value={lang}
             onChange={(e: Event) => chooseLang(e.target.value)}
           >
-            {langs.map((langOption) => (
+            {langs.map((langCode) => (
               // @ts-ignore
-              <option key={langOption} value={langOption}>
-                {langOption}
+              <option key={langCode} value={langCode}>
+                {getLangLabel(langCode)}
               </option>
             ))}
           </select>
