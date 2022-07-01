@@ -1,5 +1,5 @@
 import type { Language } from "../types";
-import { InterfaceLang } from "./interfaceLangs";
+import type { InterfaceLang } from "./interfaceLangs";
 
 type LangNameSet = Record<InterfaceLang | "fr", string>;
 

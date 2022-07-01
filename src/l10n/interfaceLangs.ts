@@ -1,4 +1,4 @@
-export enum InterfaceLang {
+export const enum InterfaceLang {
   EN = "en",
   DE = "de",
 }
