@@ -9,7 +9,7 @@ export const defaultSupportedLangs: Language[] = [
   "bn",
   "bs",
   "ca", //
-  "ceb", //
+  "ceb",
   "co",
   "cs",
   "cy",
@@ -30,10 +30,10 @@ export const defaultSupportedLangs: Language[] = [
   "gl",
   "gu",
   "ha",
-  "haw", //
+  "haw",
   "he",
   "hi",
-  "hmn", //
+  "hmn",
   "hr",
   "ht", //
   "hu",
@@ -42,9 +42,8 @@ export const defaultSupportedLangs: Language[] = [
   "ig",
   "is",
   "it",
-  "iw", //
   "ja",
-  "jw", //
+  "jw", // jv?
   "ka",
   "kk",
   "km",
@@ -108,8 +107,8 @@ export const defaultSupportedLangs: Language[] = [
   "yi",
   "yo",
   "zh",
-  "zh-CN", //
-  "zh-TW", //
+  "zh-CN",
+  "zh-TW",
   "zu",
 ];
 

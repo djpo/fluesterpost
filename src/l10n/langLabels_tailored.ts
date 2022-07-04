@@ -48,7 +48,11 @@ export const langLabels: LangNameList = {
     fr: "catalan; valencien",
     de: "Katalanisch",
   },
-  // ceb
+  ceb: {
+    en: "Cebuano",
+    fr: "cebuano",
+    de: "Cebuano",
+  },
   co: {
     en: "Corsican",
     fr: "corse",
@@ -149,7 +153,11 @@ export const langLabels: LangNameList = {
     fr: "haoussa",
     de: "Haussa-Sprache",
   },
-  // "haw"
+  haw: {
+    en: "Hawaiian",
+    fr: "hawaïen",
+    de: "hawaiische Sprache",
+  },
   he: {
     en: "Hebrew",
     fr: "hébreu",
@@ -160,7 +168,11 @@ export const langLabels: LangNameList = {
     fr: "hindi",
     de: "Hindi",
   },
-  // "hmn"
+  hmn: {
+    en: "Hmong",
+    fr: "miao chuanqiandian",
+    de: "Hmong",
+  },
   hr: {
     en: "Croatian",
     fr: "croate",
@@ -201,13 +213,16 @@ export const langLabels: LangNameList = {
     fr: "italien",
     de: "Italienisch",
   },
-  // "iw"
   ja: {
     en: "Japanese",
     fr: "japonais",
     de: "Japanisch",
   },
-  // "jw"
+  jw: {
+    en: "Javanese",
+    fr: "javanais",
+    de: "javanische Sprache",
+  },
   ka: {
     en: "Georgian",
     fr: "géorgien",
@@ -523,8 +538,16 @@ export const langLabels: LangNameList = {
     fr: "chinois",
     de: "Chinesisch",
   },
-  // zh-CN
-  // zh-TW
+  "zh-CN": {
+    en: "Chinese (PRC)",
+    fr: "chinois (Chine)",
+    de: "Chinesisch (China)",
+  },
+  "zh-TW": {
+    en: "Chinese (Taiwan)",
+    fr: "choinois (Taïwan)",
+    de: "Chinesisch (Taiwan)",
+  },
   zu: {
     en: "Zulu",
     fr: "zoulou",
