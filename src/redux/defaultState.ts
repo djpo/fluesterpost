@@ -8,14 +8,14 @@ export const defaultSupportedLangs: Language[] = [
   "bg",
   "bn",
   "bs",
-  "ca", //
+  "ca",
   "ceb",
   "co",
   "cs",
   "cy",
   "da",
   "de",
-  "el", //
+  "el",
   "en",
   "eo",
   "es",
@@ -26,7 +26,7 @@ export const defaultSupportedLangs: Language[] = [
   "fr",
   "fy",
   "ga",
-  "gd", //
+  "gd",
   "gl",
   "gu",
   "ha",
@@ -35,7 +35,7 @@ export const defaultSupportedLangs: Language[] = [
   "hi",
   "hmn",
   "hr",
-  "ht", //
+  "ht",
   "hu",
   "hy",
   "id",
@@ -52,7 +52,7 @@ export const defaultSupportedLangs: Language[] = [
   "ku",
   "ky",
   "la",
-  "lb", //
+  "lb",
   "lo",
   "lt",
   "lv",
@@ -66,19 +66,19 @@ export const defaultSupportedLangs: Language[] = [
   "mt",
   "my",
   "ne",
-  "nl", //
+  "nl",
   "no",
-  "ny", //
+  "ny",
   "or",
-  "pa", //
+  "pa",
   "pl",
-  "ps", //
+  "ps",
   "pt",
-  "ro", //
+  "ro",
   "ru",
   "rw",
   "sd",
-  "si", //
+  "si",
   "sk",
   "sl",
   "sm",
@@ -86,7 +86,7 @@ export const defaultSupportedLangs: Language[] = [
   "so",
   "sq",
   "sr",
-  "st", //
+  "st",
   "su",
   "sv",
   "sw",
@@ -98,7 +98,7 @@ export const defaultSupportedLangs: Language[] = [
   "tl",
   "tr",
   "tt",
-  "ug", //
+  "ug",
   "uk",
   "ur",
   "uz",
