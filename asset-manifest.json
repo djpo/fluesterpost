@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/fluesterpost/static/css/main.442b045d.css",
-    "main.js": "/fluesterpost/static/js/main.6193257c.js",
+    "main.js": "/fluesterpost/static/js/main.6f6243f3.js",
     "static/js/787.28b78f8e.chunk.js": "/fluesterpost/static/js/787.28b78f8e.chunk.js",
     "index.html": "/fluesterpost/index.html",
     "main.442b045d.css.map": "/fluesterpost/static/css/main.442b045d.css.map",
-    "main.6193257c.js.map": "/fluesterpost/static/js/main.6193257c.js.map",
+    "main.6f6243f3.js.map": "/fluesterpost/static/js/main.6f6243f3.js.map",
     "787.28b78f8e.chunk.js.map": "/fluesterpost/static/js/787.28b78f8e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.442b045d.css",
-    "static/js/main.6193257c.js"
+    "static/js/main.6f6243f3.js"
   ]
 }
