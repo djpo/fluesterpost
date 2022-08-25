@@ -1,13 +1,25 @@
 .instructions {
   margin-bottom: 2vh;
   background-color: rgba(255, 255, 255, 0.4);
-  padding: 0.5vh 2vh 0.5vh 2vh;
+  padding: 0.1vh 1vh 1vh 1vh;
+  font-size: small;
 }
 
-.no-bottom-margin {
+.instruction-with-substep {
   margin-bottom: 0.5vh;
 }
 
-.instructions > .sub-step {
-  margin: 0 0 0 2vh;
+.substep {
+  margin-top: 0;
+  margin-left: 2vh;
+}
+
+.instructions-button-row {
+  flex-direction: row-reverse;
+  display: flex;
+}
+
+.instructions-button-row > button {
+  margin-bottom: 0;
+  font-size: small;
 }

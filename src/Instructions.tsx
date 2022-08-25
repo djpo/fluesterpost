@@ -20,11 +20,15 @@ function Instructions(): JSX.Element {
     <div className="instructions">
       <p>{instructionsText1}</p>
       <p>{instructionsText2}</p>
-      <p className="no-bottom-margin">{instructionsText3}</p>
-      <p className="sub-step">{instructionsText4}</p>
+      <p className="instruction-with-substep">{instructionsText3}</p>
+      <p className="substep">{instructionsText4}</p>
       <p>{instructionsText5}</p>
 
-      <button onClick={handleDismiss}>dismiss</button>
+      <div className="instructions-button-row">
+        <button className="primary-button" onClick={handleDismiss}>
+          dismiss
+        </button>
+      </div>
     </div>
   );
 }
