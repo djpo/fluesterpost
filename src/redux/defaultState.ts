@@ -135,3 +135,5 @@ export const defaultSteps: Step[] = [
 ];
 
 export const defaultErrorMessage: ErrorMessage = "";
+
+export const defaultAreInstructionsVisible = true;

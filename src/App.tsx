@@ -15,7 +15,9 @@ import {
   selectSteps,
   selectIsFetchingAny,
   selectErrorMessage,
+  selectAreInstructionsVisible,
 } from "./redux/selectors";
+import { Instructions } from "./Instructions";
 import { Step } from "./Step";
 import { StepOrigin } from "./StepOrigin";
 import { StepFinal } from "./StepFinal";
@@ -45,6 +47,7 @@ function AppUnconnected({
   const steps: StepType[] = useSelector(selectSteps);
   const isFetchingAny: boolean = useSelector(selectIsFetchingAny);
   const errorMessage: ErrorMessage = useSelector(selectErrorMessage);
+  const areInstructionsVisible: boolean = useSelector(selectAreInstructionsVisible);
 
   const langsWithoutOrigin = supportedLangs.filter((lang) => lang !== originLang);
 
@@ -61,6 +64,8 @@ function AppUnconnected({
       </header>
 
       <div className="App-body">
+        {areInstructionsVisible && <Instructions />}
+
         {errorMessage && <p>error: {errorMessage}</p>}
 
         <StepOrigin
