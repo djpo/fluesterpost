@@ -1,3 +1,5 @@
+import { useDispatch } from "react-redux";
+import { dismissInstructions } from "./redux/actions";
 import "./Instructions.css";
 
 const instructionsText1 =
@@ -9,6 +11,11 @@ const instructionsText4 = "[r]: randomize, [x]: remove step";
 const instructionsText5 = "3. press translate – see how the result differs from the input!";
 
 function Instructions(): JSX.Element {
+  const dispatch = useDispatch();
+  const handleDismiss = (): void => {
+    dispatch(dismissInstructions());
+  };
+
   return (
     <div className="instructions">
       <p>{instructionsText1}</p>
@@ -16,6 +23,8 @@ function Instructions(): JSX.Element {
       <p className="no-bottom-margin">{instructionsText3}</p>
       <p className="sub-step">{instructionsText4}</p>
       <p>{instructionsText5}</p>
+
+      <button onClick={handleDismiss}>dismiss</button>
     </div>
   );
 }

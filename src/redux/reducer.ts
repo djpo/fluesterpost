@@ -9,6 +9,7 @@ import {
   CLEAR_ALL_STEPS_TEXT,
   ADD_STEP,
   REMOVE_STEP,
+  DISMISS_INSTRUCTIONS,
 } from "./actionTypes";
 import {
   defaultSupportedLangs,
@@ -16,6 +17,7 @@ import {
   defaultOriginText,
   defaultSteps,
   defaultErrorMessage,
+  defaultAreInstructionsVisible,
 } from "./defaultState";
 
 const initialState = {
@@ -25,6 +27,7 @@ const initialState = {
   steps: defaultSteps,
   isFetchingAny: false,
   errorMessage: defaultErrorMessage,
+  areInstructionsVisible: defaultAreInstructionsVisible,
 };
 
 /* @ts-ignore */ /* eslint-disable-next-line default-param-last */
@@ -109,6 +112,12 @@ export function appReducer(state = initialState, { type, payload }) {
         ...state,
         // @ts-ignore
         steps: state.steps.filter((step, i) => i !== payload.stepIndexToRemove),
+      };
+    }
+    case DISMISS_INSTRUCTIONS: {
+      return {
+        ...state,
+        areInstructionsVisible: false,
       };
     }
     default:
