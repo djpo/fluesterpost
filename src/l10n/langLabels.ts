@@ -8,70 +8,20 @@ interface LangNameList {
 }
 
 export const langLabels: LangNameList = {
-  aa: {
-    en: "Afar",
-    fr: "afar",
-    de: "Danakil-Sprache",
-  },
-  ab: {
-    en: "Abkhazian",
-    fr: "abkhaze",
-    de: "Abchasisch",
-  },
-  ae: {
-    en: "Avestan",
-    fr: "avestique",
-    de: "Avestisch",
-  },
-  af: {
-    en: "Afrikaans",
-    fr: "afrikaans",
-    de: "Afrikaans",
-  },
-  ak: {
-    en: "Akan",
-    fr: "akan",
-    de: "Akan-Sprache",
-  },
   am: {
     en: "Amharic",
     fr: "amharique",
     de: "Amharisch",
-  },
-  an: {
-    en: "Aragonese",
-    fr: "aragonais",
-    de: "Aragonesisch",
   },
   ar: {
     en: "Arabic",
     fr: "arabe",
     de: "Arabisch",
   },
-  as: {
-    en: "Assamese",
-    fr: "assamais",
-    de: "Assamesisch",
-  },
-  av: {
-    en: "Avaric",
-    fr: "avar",
-    de: "Awarisch",
-  },
-  ay: {
-    en: "Aymara",
-    fr: "aymara",
-    de: "Aymará-Sprache",
-  },
   az: {
     en: "Azerbaijani",
     fr: "azéri",
     de: "Aserbeidschanisch",
-  },
-  ba: {
-    en: "Bashkir",
-    fr: "bachkir",
-    de: "Baschkirisch",
   },
   be: {
     en: "Belarusian",
@@ -83,35 +33,10 @@ export const langLabels: LangNameList = {
     fr: "bulgare",
     de: "Bulgarisch",
   },
-  bh: {
-    en: "Bihari languages",
-    fr: "langues biharis",
-    de: "Bihari (Andere)",
-  },
-  bi: {
-    en: "Bislama",
-    fr: "bichlamar",
-    de: "Beach-la-mar",
-  },
-  bm: {
-    en: "Bambara",
-    fr: "bambara",
-    de: "Bambara-Sprache",
-  },
   bn: {
     en: "Bengali",
     fr: "bengali",
     de: "Bengali",
-  },
-  bo: {
-    en: "Tibetan",
-    fr: "tibétain",
-    de: "Tibetisch",
-  },
-  br: {
-    en: "Breton",
-    fr: "breton",
-    de: "Bretonisch",
   },
   bs: {
     en: "Bosnian",
@@ -119,44 +44,24 @@ export const langLabels: LangNameList = {
     de: "Bosnisch",
   },
   ca: {
-    en: "Catalan; Valencian",
-    fr: "catalan; valencien",
+    en: "Catalan",
+    fr: "catalan",
     de: "Katalanisch",
   },
-  ce: {
-    en: "Chechen",
-    fr: "tchétchène",
-    de: "Tschetschenisch",
-  },
-  ch: {
-    en: "Chamorro",
-    fr: "chamorro",
-    de: "Chamorro-Sprache",
+  ceb: {
+    en: "Cebuano",
+    fr: "cebuano",
+    de: "Cebuano",
   },
   co: {
     en: "Corsican",
     fr: "corse",
     de: "Korsisch",
   },
-  cr: {
-    en: "Cree",
-    fr: "cree",
-    de: "Cree-Sprache",
-  },
   cs: {
     en: "Czech",
     fr: "tchèque",
     de: "Tschechisch",
-  },
-  cu: {
-    en: "Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic",
-    fr: "slavon d'église; vieux slave; slavon liturgique; vieux bulgare",
-    de: "Kirchenslawisch",
-  },
-  cv: {
-    en: "Chuvash",
-    fr: "tchouvache",
-    de: "Tschuwaschisch",
   },
   cy: {
     en: "Welsh",
@@ -173,25 +78,10 @@ export const langLabels: LangNameList = {
     fr: "allemand",
     de: "Deutsch",
   },
-  dv: {
-    en: "Divehi; Dhivehi; Maldivian",
-    fr: "maldivien",
-    de: "Maledivisch",
-  },
-  dz: {
-    en: "Dzongkha",
-    fr: "dzongkha",
-    de: "Dzongkha",
-  },
-  ee: {
-    en: "Ewe",
-    fr: "éwé",
-    de: "Ewe-Sprache",
-  },
   el: {
-    en: "Greek, Modern (1453-)",
-    fr: "grec moderne (après 1453)",
-    de: "Neugriechisch",
+    en: "Greek",
+    fr: "grec",
+    de: "Griechisch",
   },
   en: {
     en: "English",
@@ -204,8 +94,8 @@ export const langLabels: LangNameList = {
     de: "Esperanto",
   },
   es: {
-    en: "Spanish; Castilian",
-    fr: "espagnol; castillan",
+    en: "Spanish",
+    fr: "espagnol",
     de: "Spanisch",
   },
   et: {
@@ -223,25 +113,10 @@ export const langLabels: LangNameList = {
     fr: "persan",
     de: "Persisch",
   },
-  ff: {
-    en: "Fulah",
-    fr: "peul",
-    de: "Ful",
-  },
   fi: {
     en: "Finnish",
     fr: "finnois",
     de: "Finnisch",
-  },
-  fj: {
-    en: "Fijian",
-    fr: "fidjien",
-    de: "Fidschi-Sprache",
-  },
-  fo: {
-    en: "Faroese",
-    fr: "féroïen",
-    de: "Färöisch",
   },
   fr: {
     en: "French",
@@ -249,7 +124,7 @@ export const langLabels: LangNameList = {
     de: "Französisch",
   },
   fy: {
-    en: "Western Frisian",
+    en: "West Frisian",
     fr: "frison occidental",
     de: "Friesisch",
   },
@@ -259,8 +134,8 @@ export const langLabels: LangNameList = {
     de: "Irisch",
   },
   gd: {
-    en: "Gaelic; Scottish Gaelic",
-    fr: "gaélique; gaélique écossais",
+    en: "Scottish Gaelic",
+    fr: "gaélique écossais",
     de: "Gälisch-Schottisch",
   },
   gl: {
@@ -268,25 +143,20 @@ export const langLabels: LangNameList = {
     fr: "galicien",
     de: "Galicisch",
   },
-  gn: {
-    en: "Guarani",
-    fr: "guarani",
-    de: "Guaraní-Sprache",
-  },
   gu: {
     en: "Gujarati",
     fr: "goudjrati",
     de: "Gujarati-Sprache",
   },
-  gv: {
-    en: "Manx",
-    fr: "manx; mannois",
-    de: "Manx",
-  },
   ha: {
     en: "Hausa",
     fr: "haoussa",
     de: "Haussa-Sprache",
+  },
+  haw: {
+    en: "Hawaiian",
+    fr: "hawaïen",
+    de: "hawaiische Sprache",
   },
   he: {
     en: "Hebrew",
@@ -298,10 +168,10 @@ export const langLabels: LangNameList = {
     fr: "hindi",
     de: "Hindi",
   },
-  ho: {
-    en: "Hiri Motu",
-    fr: "hiri motu",
-    de: "Hiri-Motu",
+  hmn: {
+    en: "Hmong",
+    fr: "miao chuanqiandian",
+    de: "Hmong",
   },
   hr: {
     en: "Croatian",
@@ -309,9 +179,9 @@ export const langLabels: LangNameList = {
     de: "Kroatisch",
   },
   ht: {
-    en: "Haitian; Haitian Creole",
-    fr: "haïtien; créole haïtien",
-    de: "Haïtien (Haiti-Kreolisch)",
+    en: "Haitian Creole",
+    fr: "créole haïtien",
+    de: "Haiti-Kreolisch",
   },
   hu: {
     en: "Hungarian",
@@ -323,45 +193,15 @@ export const langLabels: LangNameList = {
     fr: "arménien",
     de: "Armenisch",
   },
-  hz: {
-    en: "Herero",
-    fr: "herero",
-    de: "Herero-Sprache",
-  },
-  ia: {
-    en: "Interlingua (International Auxiliary Language Association)",
-    fr: "interlingua (langue auxiliaire internationale)",
-    de: "Interlingua",
-  },
   id: {
     en: "Indonesian",
     fr: "indonésien",
     de: "Bahasa Indonesia",
   },
-  ie: {
-    en: "Interlingue; Occidental",
-    fr: "interlingue",
-    de: "Interlingue",
-  },
   ig: {
     en: "Igbo",
     fr: "igbo",
     de: "Ibo-Sprache",
-  },
-  ii: {
-    en: "Sichuan Yi; Nuosu",
-    fr: "yi de Sichuan",
-    de: "Lalo-Sprache",
-  },
-  ik: {
-    en: "Inupiaq",
-    fr: "inupiaq",
-    de: "Inupik",
-  },
-  io: {
-    en: "Ido",
-    fr: "ido",
-    de: "Ido",
   },
   is: {
     en: "Icelandic",
@@ -373,11 +213,6 @@ export const langLabels: LangNameList = {
     fr: "italien",
     de: "Italienisch",
   },
-  iu: {
-    en: "Inuktitut",
-    fr: "inuktitut",
-    de: "Inuktitut",
-  },
   ja: {
     en: "Japanese",
     fr: "japonais",
@@ -386,37 +221,17 @@ export const langLabels: LangNameList = {
   jv: {
     en: "Javanese",
     fr: "javanais",
-    de: "Javanisch",
+    de: "javanische Sprache",
   },
   ka: {
     en: "Georgian",
     fr: "géorgien",
     de: "Georgisch",
   },
-  kg: {
-    en: "Kongo",
-    fr: "kongo",
-    de: "Kongo-Sprache",
-  },
-  ki: {
-    en: "Kikuyu; Gikuyu",
-    fr: "kikuyu",
-    de: "Kikuyu-Sprache",
-  },
-  kj: {
-    en: "Kuanyama; Kwanyama",
-    fr: "kuanyama; kwanyama",
-    de: "Kwanyama-Sprache",
-  },
   kk: {
     en: "Kazakh",
     fr: "kazakh",
     de: "Kasachisch",
-  },
-  kl: {
-    en: "Kalaallisut; Greenlandic",
-    fr: "groenlandais",
-    de: "Grönländisch",
   },
   km: {
     en: "Central Khmer",
@@ -433,33 +248,13 @@ export const langLabels: LangNameList = {
     fr: "coréen",
     de: "Koreanisch",
   },
-  kr: {
-    en: "Kanuri",
-    fr: "kanouri",
-    de: "Kanuri-Sprache",
-  },
-  ks: {
-    en: "Kashmiri",
-    fr: "kashmiri",
-    de: "Kaschmiri",
-  },
   ku: {
     en: "Kurdish",
     fr: "kurde",
     de: "Kurdisch",
   },
-  kv: {
-    en: "Komi",
-    fr: "kom",
-    de: "Komi-Sprache",
-  },
-  kw: {
-    en: "Cornish",
-    fr: "cornique",
-    de: "Kornisch",
-  },
   ky: {
-    en: "Kirghiz; Kyrgyz",
+    en: "Kyrgyz",
     fr: "kirghiz",
     de: "Kirgisisch",
   },
@@ -469,24 +264,9 @@ export const langLabels: LangNameList = {
     de: "Latein",
   },
   lb: {
-    en: "Luxembourgish; Letzeburgesch",
+    en: "Luxembourgish",
     fr: "luxembourgeois",
     de: "Luxemburgisch",
-  },
-  lg: {
-    en: "Ganda",
-    fr: "ganda",
-    de: "Ganda-Sprache",
-  },
-  li: {
-    en: "Limburgan; Limburger; Limburgish",
-    fr: "limbourgeois",
-    de: "Limburgisch",
-  },
-  ln: {
-    en: "Lingala",
-    fr: "lingala",
-    de: "Lingala",
   },
   lo: {
     en: "Lao",
@@ -498,11 +278,6 @@ export const langLabels: LangNameList = {
     fr: "lituanien",
     de: "Litauisch",
   },
-  lu: {
-    en: "Luba-Katanga",
-    fr: "luba-katanga",
-    de: "Luba-Katanga-Sprache",
-  },
   lv: {
     en: "Latvian",
     fr: "letton",
@@ -512,11 +287,6 @@ export const langLabels: LangNameList = {
     en: "Malagasy",
     fr: "malgache",
     de: "Malagassi-Sprache",
-  },
-  mh: {
-    en: "Marshallese",
-    fr: "marshall",
-    de: "Marschallesisch",
   },
   mi: {
     en: "Maori",
@@ -558,95 +328,35 @@ export const langLabels: LangNameList = {
     fr: "birman",
     de: "Birmanisch",
   },
-  na: {
-    en: "Nauru",
-    fr: "nauruan",
-    de: "Nauruanisch",
-  },
-  nb: {
-    en: "Bokmål, Norwegian; Norwegian Bokmål",
-    fr: "norvégien bokmål",
-    de: "Bokmål",
-  },
-  nd: {
-    en: "Ndebele, North; North Ndebele",
-    fr: "ndébélé du Nord",
-    de: "Ndebele-Sprache (Simbabwe)",
-  },
   ne: {
     en: "Nepali",
     fr: "népalais",
     de: "Nepali",
   },
-  ng: {
-    en: "Ndonga",
-    fr: "ndonga",
-    de: "Ndonga",
-  },
   nl: {
-    en: "Dutch; Flemish",
-    fr: "néerlandais; flamand",
+    en: "Dutch",
+    fr: "néerlandais",
     de: "Niederländisch",
-  },
-  nn: {
-    en: "Norwegian Nynorsk; Nynorsk, Norwegian",
-    fr: "norvégien nynorsk; nynorsk, norvégien",
-    de: "Nynorsk",
   },
   no: {
     en: "Norwegian",
     fr: "norvégien",
     de: "Norwegisch",
   },
-  nr: {
-    en: "Ndebele, South; South Ndebele",
-    fr: "ndébélé du Sud",
-    de: "Ndebele-Sprache (Transvaal)",
-  },
-  nv: {
-    en: "Navajo; Navaho",
-    fr: "navaho",
-    de: "Navajo-Sprache",
-  },
   ny: {
-    en: "Chichewa; Chewa; Nyanja",
-    fr: "chichewa; chewa; nyanja",
+    en: "Chichewa",
+    fr: "chichewa",
     de: "Nyanja-Sprache",
-  },
-  oc: {
-    en: "Occitan (post 1500)",
-    fr: "occitan (après 1500)",
-    de: "Okzitanisch",
-  },
-  oj: {
-    en: "Ojibwa",
-    fr: "ojibwa",
-    de: "Ojibwa-Sprache",
-  },
-  om: {
-    en: "Oromo",
-    fr: "galla",
-    de: "Galla-Sprache",
   },
   or: {
     en: "Oriya",
     fr: "oriya",
     de: "Oriya-Sprache",
   },
-  os: {
-    en: "Ossetian; Ossetic",
-    fr: "ossète",
-    de: "Ossetisch",
-  },
   pa: {
-    en: "Panjabi; Punjabi",
+    en: "Punjabi",
     fr: "pendjabi",
     de: "Pandschabi-Sprache",
-  },
-  pi: {
-    en: "Pali",
-    fr: "pali",
-    de: "Pali",
   },
   pl: {
     en: "Polish",
@@ -654,7 +364,7 @@ export const langLabels: LangNameList = {
     de: "Polnisch",
   },
   ps: {
-    en: "Pushto; Pashto",
+    en: "Pashto",
     fr: "pachto",
     de: "Paschtu",
   },
@@ -663,24 +373,9 @@ export const langLabels: LangNameList = {
     fr: "portugais",
     de: "Portugiesisch",
   },
-  qu: {
-    en: "Quechua",
-    fr: "quechua",
-    de: "Quechua-Sprache",
-  },
-  rm: {
-    en: "Romansh",
-    fr: "romanche",
-    de: "Rätoromanisch",
-  },
-  rn: {
-    en: "Rundi",
-    fr: "rundi",
-    de: "Rundi-Sprache",
-  },
   ro: {
-    en: "Romanian; Moldavian; Moldovan",
-    fr: "roumain; moldave",
+    en: "Romanian",
+    fr: "roumain",
     de: "Rumänisch",
   },
   ru: {
@@ -693,33 +388,13 @@ export const langLabels: LangNameList = {
     fr: "rwanda",
     de: "Rwanda-Sprache",
   },
-  sa: {
-    en: "Sanskrit",
-    fr: "sanskrit",
-    de: "Sanskrit",
-  },
-  sc: {
-    en: "Sardinian",
-    fr: "sarde",
-    de: "Sardisch",
-  },
   sd: {
     en: "Sindhi",
     fr: "sindhi",
     de: "Sindhi-Sprache",
   },
-  se: {
-    en: "Northern Sami",
-    fr: "sami du Nord",
-    de: "Nordsaamisch",
-  },
-  sg: {
-    en: "Sango",
-    fr: "sango",
-    de: "Sango-Sprache",
-  },
   si: {
-    en: "Sinhala; Sinhalese",
+    en: "Sinhala",
     fr: "singhalais",
     de: "Singhalesisch",
   },
@@ -758,13 +433,8 @@ export const langLabels: LangNameList = {
     fr: "serbe",
     de: "Serbisch",
   },
-  ss: {
-    en: "Swati",
-    fr: "swati",
-    de: "Swasi-Sprache",
-  },
   st: {
-    en: "Sotho, Southern",
+    en: "Southern Sotho",
     fr: "sotho du Sud",
     de: "Süd-Sotho-Sprache",
   },
@@ -803,11 +473,6 @@ export const langLabels: LangNameList = {
     fr: "thaï",
     de: "Thailändisch",
   },
-  ti: {
-    en: "Tigrinya",
-    fr: "tigrigna",
-    de: "Tigrinja-Sprache",
-  },
   tk: {
     en: "Turkmen",
     fr: "turkmène",
@@ -818,43 +483,18 @@ export const langLabels: LangNameList = {
     fr: "tagalog",
     de: "Tagalog",
   },
-  tn: {
-    en: "Tswana",
-    fr: "tswana",
-    de: "Tswana-Sprache",
-  },
-  to: {
-    en: "Tonga (Tonga Islands)",
-    fr: "tongan (Îles Tonga)",
-    de: "Tongaisch",
-  },
   tr: {
     en: "Turkish",
     fr: "turc",
     de: "Türkisch",
-  },
-  ts: {
-    en: "Tsonga",
-    fr: "tsonga",
-    de: "Tsonga-Sprache",
   },
   tt: {
     en: "Tatar",
     fr: "tatar",
     de: "Tatarisch",
   },
-  tw: {
-    en: "Twi",
-    fr: "twi",
-    de: "Twi-Sprache",
-  },
-  ty: {
-    en: "Tahitian",
-    fr: "tahitien",
-    de: "Tahitisch",
-  },
   ug: {
-    en: "Uighur; Uyghur",
+    en: "Uyghur",
     fr: "ouïgour",
     de: "Uigurisch",
   },
@@ -873,30 +513,10 @@ export const langLabels: LangNameList = {
     fr: "ouszbek",
     de: "Usbekisch",
   },
-  ve: {
-    en: "Venda",
-    fr: "venda",
-    de: "Venda-Sprache",
-  },
   vi: {
     en: "Vietnamese",
     fr: "vietnamien",
     de: "Vietnamesisch",
-  },
-  vo: {
-    en: "Volapük",
-    fr: "volapük",
-    de: "Volapük",
-  },
-  wa: {
-    en: "Walloon",
-    fr: "wallon",
-    de: "Wallonisch",
-  },
-  wo: {
-    en: "Wolof",
-    fr: "wolof",
-    de: "Wolof-Sprache",
   },
   xh: {
     en: "Xhosa",
@@ -913,15 +533,20 @@ export const langLabels: LangNameList = {
     fr: "yoruba",
     de: "Yoruba-Sprache",
   },
-  za: {
-    en: "Zhuang; Chuang",
-    fr: "zhuang; chuang",
-    de: "Zhuang",
-  },
   zh: {
     en: "Chinese",
     fr: "chinois",
     de: "Chinesisch",
+  },
+  "zh-CN": {
+    en: "Chinese (PRC)",
+    fr: "chinois (Chine)",
+    de: "Chinesisch (China)",
+  },
+  "zh-TW": {
+    en: "Chinese (Taiwan)",
+    fr: "choinois (Taïwan)",
+    de: "Chinesisch (Taiwan)",
   },
   zu: {
     en: "Zulu",
