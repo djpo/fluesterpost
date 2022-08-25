@@ -47,6 +47,7 @@ function AppUnconnected({
   const steps: StepType[] = useSelector(selectSteps);
   const isFetchingAny: boolean = useSelector(selectIsFetchingAny);
   const errorMessage: ErrorMessage = useSelector(selectErrorMessage);
+  const areInstructionsVisible: boolean = useSelector(selectAreInstructionsVisible);
 
   const langsWithoutOrigin = supportedLangs.filter((lang) => lang !== originLang);
 
