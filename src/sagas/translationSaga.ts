@@ -1,4 +1,5 @@
 import { call, put, select, takeEvery } from "redux-saga/effects";
+import he from "he";
 import { selectOriginLang, selectOriginText, selectSteps } from "../redux/selectors";
 import { fetchTranslation } from "../api-fetch-translations/fetchTranslation";
 import {
@@ -30,9 +31,11 @@ function* fetchStepTranslation(
   // @ts-ignore
   const response = yield call(fetchTranslation, sourceLang, targetLang, textToTranslate);
   const translation = response.data.data.translations[0].translatedText;
+  const translationDecoded = he.decode(translation);
+
   yield put({
     type: UPDATE_STEP_TEXT,
-    payload: { stepIndexToUpdate: stepIndex, newText: translation },
+    payload: { stepIndexToUpdate: stepIndex, newText: translationDecoded },
   });
   yield put({
     type: UPDATE_STEP_IS_FETCHING,
