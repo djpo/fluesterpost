@@ -7,3 +7,5 @@ export const selectOriginText = (state: RootState): TranslationText => state.ori
 export const selectSteps = (state: RootState): Step[] => state.steps;
 export const selectIsFetchingAny = (state: RootState): boolean => state.isFetchingAny;
 export const selectErrorMessage = (state: RootState): ErrorMessage => state.errorMessage;
+export const selectAreInstructionsVisible = (state: RootState): boolean =>
+  state.areInstructionsVisible;

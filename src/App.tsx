@@ -15,7 +15,9 @@ import {
   selectSteps,
   selectIsFetchingAny,
   selectErrorMessage,
+  selectAreInstructionsVisible,
 } from "./redux/selectors";
+import { Instructions } from "./Instructions";
 import { Step } from "./Step";
 import { StepOrigin } from "./StepOrigin";
 import { StepFinal } from "./StepFinal";
@@ -61,6 +63,8 @@ function AppUnconnected({
       </header>
 
       <div className="App-body">
+        {areInstructionsVisible && <Instructions />}
+
         {errorMessage && <p>error: {errorMessage}</p>}
 
         <StepOrigin
