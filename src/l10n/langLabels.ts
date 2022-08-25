@@ -254,7 +254,7 @@ export const langLabels: LangNameList = {
     de: "Kurdisch",
   },
   ky: {
-    en: "Kirghiz; Kyrgyz",
+    en: "Kyrgyz",
     fr: "kirghiz",
     de: "Kirgisisch",
   },
