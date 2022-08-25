@@ -16,6 +16,7 @@ import {
   selectIsFetchingAny,
   selectErrorMessage,
 } from "./redux/selectors";
+import { Instructions } from "./Instructions";
 import { Step } from "./Step";
 import { StepOrigin } from "./StepOrigin";
 import { StepFinal } from "./StepFinal";
@@ -61,6 +62,8 @@ function AppUnconnected({
       </header>
 
       <div className="App-body">
+        <Instructions />
+
         {errorMessage && <p>error: {errorMessage}</p>}
 
         <StepOrigin
