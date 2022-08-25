@@ -16,7 +16,7 @@ const dummyResponse = {
 };
 
 axios.defaults.baseURL = process.env.REACT_APP_GOOGLE_TRANSLATE_URL;
-const apiKey = process.env.REACT_APP_GOOGLE_CLOUD_API_KEY;
+const apiKey = process.env.REACT_APP_GOOGLE_CLOUD_API_KEY || "";
 
 // // dummy API response (so I don't use up my API quota)
 // // @ts-ignore
@@ -35,9 +35,15 @@ const fetchTranslation = async (
   targetLang: Language,
   textToTranslate: TranslationText
 ) => {
+  const urlEncoded = `language/translate/v2/?key=${encodeURIComponent(
+    apiKey
+  )}&q=${encodeURIComponent(textToTranslate)}&target=${encodeURIComponent(
+    targetLang
+  )}&source=${encodeURIComponent(sourceLang)}`;
+
   const params: RequestParams = {
     method: "POST",
-    url: `language/translate/v2/?key=${apiKey}&q=${textToTranslate}&target=${targetLang}&source=${sourceLang}`,
+    url: urlEncoded,
   };
 
   return axios.request(params);
