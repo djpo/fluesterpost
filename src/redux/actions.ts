@@ -7,6 +7,7 @@ import {
   UPDATE_STEP_IS_FETCHING,
   UPDATE_ERROR,
   CLEAR_ALL_STEPS_TEXT,
+  FETCH_TRANSLATIONS,
   ADD_STEP,
   REMOVE_STEP,
   DISMISS_INSTRUCTIONS,
@@ -72,6 +73,10 @@ export function updateError(newError: ErrorMessage) {
 
 export function clearAllStepsText() {
   return { type: CLEAR_ALL_STEPS_TEXT };
+}
+
+export function fetchTranslations() {
+  return { type: FETCH_TRANSLATIONS };
 }
 
 export function addStep(langsWithoutOrigin: Language[]) {

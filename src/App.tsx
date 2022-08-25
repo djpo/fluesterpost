@@ -5,6 +5,7 @@ import {
   updateOriginText as updateOriginTextAction,
   updateStepLang as updateStepLangAction,
   randomizeStepLang as randomizeStepLangAction,
+  fetchTranslations,
   addStep as addStepAction,
   removeStep as removeStepAction,
 } from "./redux/actions";
@@ -54,7 +55,7 @@ function AppUnconnected({
   const dispatch = useDispatch();
 
   const handleBeginTranslation = (): void => {
-    dispatch({ type: "FETCH_TRANSLATIONS" });
+    dispatch(fetchTranslations());
   };
 
   return (
