@@ -218,7 +218,7 @@ export const langLabels: LangNameList = {
     fr: "japonais",
     de: "Japanisch",
   },
-  jw: {
+  jv: {
     en: "Javanese",
     fr: "javanais",
     de: "javanische Sprache",

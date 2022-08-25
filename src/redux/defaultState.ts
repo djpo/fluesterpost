@@ -43,7 +43,7 @@ export const defaultSupportedLangs: Language[] = [
   "is",
   "it",
   "ja",
-  "jw", // jv?
+  "jv",
   "ka",
   "kk",
   "km",
