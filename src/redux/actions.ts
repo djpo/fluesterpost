@@ -9,7 +9,6 @@ import {
   CLEAR_ALL_STEPS_TEXT,
   ADD_STEP,
   REMOVE_STEP,
-  DISMISS_INSTRUCTIONS,
 } from "./actionTypes";
 import type { Language, TranslationText, ErrorMessage } from "../types";
 
@@ -87,8 +86,4 @@ export function removeStep(stepIndexToRemove: number) {
     type: REMOVE_STEP,
     payload: { stepIndexToRemove },
   };
-}
-
-export function dismissInstructions() {
-  return { type: DISMISS_INSTRUCTIONS };
 }
