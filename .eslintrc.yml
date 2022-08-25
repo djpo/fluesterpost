@@ -19,7 +19,7 @@ parserOptions:
     jsx: true
   ecmaVersion: latest
   sourceType: module
-ignorePatterns: _NOTES
+ignorePatterns: [_NOTES, build]
 rules:
   "@typescript-eslint/ban-ts-comment": 1
   quotes: [2, double]
