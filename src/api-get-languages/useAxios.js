@@ -22,6 +22,7 @@ const useAxios = () => {
 
       // dummy API response (so I don't use up my API quota)
       const timeout = (ms) =>
+        // eslint-disable-next-line implicit-arrow-linebreak
         new Promise((resolve) => {
           setTimeout(resolve, ms);
         });

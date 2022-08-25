@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { Language, TranslationText, Step } from "../types";
+import type { Language, TranslationText } from "../types";
 
 interface RequestParams {
   method: string;
