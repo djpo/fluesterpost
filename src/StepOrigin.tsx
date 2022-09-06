@@ -18,42 +18,40 @@ const StepOrigin = ({
   langs,
   chooseLang,
   updateText,
-}: Props): JSX.Element => {
-  return (
-    <div className={isTranslating ? "step-row step-row-translating" : "step-row"}>
-      <div className="step-left-line-container">
-        <div className="step-left-line step-left-line-origin" />
-      </div>
+}: Props): JSX.Element => (
+  <div className={isTranslating ? "step-row step-row-translating" : "step-row"}>
+    <div className="step-left-line-container">
+      <div className="step-left-line step-left-line-origin" />
+    </div>
 
-      <div className="step-lang-box step-lang-box-origin">
-        <div className="step-lang-box-bottom">
-          <select
-            className="language-picker"
-            // @ts-ignore
-            value={lang}
-            onChange={(e: Event) => chooseLang(e.target.value)}
-          >
-            {langs.map((langCode) => (
-              // @ts-ignore
-              <option key={langCode} value={langCode}>
-                {getLangLabel(langCode)}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-
-      <div className="step-text">
-        <textarea
-          wrap="soft"
+    <div className="step-lang-box step-lang-box-origin">
+      <div className="step-lang-box-bottom">
+        <select
+          className="language-picker"
           // @ts-ignore
-          value={text}
-          onChange={(e) => updateText(e.target.value)}
-          placeholder="enter text"
-        />
+          value={lang}
+          onChange={(e: Event) => chooseLang(e.target.value)}
+        >
+          {langs.map((langCode) => (
+            // @ts-ignore
+            <option key={langCode} value={langCode}>
+              {getLangLabel(langCode)}
+            </option>
+          ))}
+        </select>
       </div>
     </div>
-  );
-};
+
+    <div className="step-text">
+      <textarea
+        wrap="soft"
+        // @ts-ignore
+        value={text}
+        onChange={(e) => updateText(e.target.value)}
+        placeholder="enter text"
+      />
+    </div>
+  </div>
+);
 
 export { StepOrigin };
