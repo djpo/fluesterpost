@@ -13,7 +13,7 @@ interface Props {
   removeStep: () => void;
 }
 
-function Step({
+const Step = ({
   hasRemoveButton,
   isTranslating,
   lang,
@@ -22,7 +22,7 @@ function Step({
   chooseLang,
   randomizeLang,
   removeStep,
-}: Props): JSX.Element {
+}: Props): JSX.Element => {
   return (
     <div className={isTranslating ? "step-row step-row-translating" : "step-row"}>
       <div className="step-left-line-container">
@@ -63,6 +63,6 @@ function Step({
       </div>
     </div>
   );
-}
+};
 
 export { Step };

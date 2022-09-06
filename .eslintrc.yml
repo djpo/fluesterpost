@@ -47,7 +47,8 @@ rules:
   react/jsx-one-expression-per-line: [0, { allow: single-child }]
   arrow-body-style: 1 # fix
   implicit-arrow-linebreak: 1 # fix
-  react/function-component-definition: 1 # fix
+  react/function-component-definition:
+    [2, { namedComponents: arrow-function, unnamedComponents: arrow-function }]
   react/no-array-index-key: 1 # fix
   react/jsx-curly-newline: 1 # fix
   no-shadow: 0

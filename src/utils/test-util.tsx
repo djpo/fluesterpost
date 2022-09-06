@@ -6,13 +6,13 @@ import { appReducer } from "../redux/reducer";
 
 const store = createStore(appReducer);
 
-function AllTheProviders({
+const AllTheProviders = ({
   children,
 }: PropsWithChildren<{
   children: React.ReactNode;
-}>): JSX.Element {
+}>): JSX.Element => {
   return <Provider store={store}>{children}</Provider>;
-}
+};
 
 const renderWithProviders = (ui: React.ReactElement, options?: any) =>
   render(ui, { wrapper: AllTheProviders, ...options });

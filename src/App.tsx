@@ -34,14 +34,14 @@ interface Props {
   removeStep: (indexToRemove: number) => void;
 }
 
-function AppUnconnected({
+const AppUnconnected = ({
   updateOriginLang,
   updateOriginText,
   updateStepLang,
   randomizeStepLang,
   addStep,
   removeStep,
-}: Props): JSX.Element {
+}: Props): JSX.Element => {
   const supportedLangs: Language[] = useSelector(selectSupportedLangs);
   const originLang: Language = useSelector(selectOriginLang);
   const originText: TranslationText = useSelector(selectOriginText);
@@ -124,7 +124,7 @@ function AppUnconnected({
       </div>
     </div>
   );
-}
+};
 
 const mapStateToProps = () => ({});
 const mapDispatchToProps = {

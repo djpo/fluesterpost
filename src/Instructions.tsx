@@ -10,7 +10,7 @@ const instructionsText3 =
 const instructionsText4 = "[r]: randomize, [x]: remove step";
 const instructionsText5 = "3. press translate – see how the result differs from the input!";
 
-function Instructions(): JSX.Element {
+const Instructions = (): JSX.Element => {
   const dispatch = useDispatch();
   const handleDismiss = (): void => {
     dispatch(dismissInstructions());
@@ -31,6 +31,6 @@ function Instructions(): JSX.Element {
       </div>
     </div>
   );
-}
+};
 
 export { Instructions };

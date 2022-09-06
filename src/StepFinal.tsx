@@ -7,7 +7,7 @@ interface Props {
   text: TranslationText;
 }
 
-function StepFinal({ isTranslating, originLang, text }: Props): JSX.Element {
+const StepFinal = ({ isTranslating, originLang, text }: Props): JSX.Element => {
   return (
     <div className={isTranslating ? "step-row step-row-translating" : "step-row"}>
       <div className="step-left-line-container">
@@ -25,6 +25,6 @@ function StepFinal({ isTranslating, originLang, text }: Props): JSX.Element {
       </div>
     </div>
   );
-}
+};
 
 export { StepFinal };

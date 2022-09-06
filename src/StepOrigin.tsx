@@ -11,14 +11,14 @@ interface Props {
   updateText: (newText: TranslationText) => void;
 }
 
-function StepOrigin({
+const StepOrigin = ({
   isTranslating,
   lang,
   text,
   langs,
   chooseLang,
   updateText,
-}: Props): JSX.Element {
+}: Props): JSX.Element => {
   return (
     <div className={isTranslating ? "step-row step-row-translating" : "step-row"}>
       <div className="step-left-line-container">
@@ -54,6 +54,6 @@ function StepOrigin({
       </div>
     </div>
   );
-}
+};
 
 export { StepOrigin };
