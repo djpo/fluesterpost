@@ -62,6 +62,7 @@ const HomePageUnconnected = ({
   return (
     <>
       <Link to="saved">SavedCyclesPage</Link>
+      <p />
 
       {areInstructionsVisible && <Instructions />}
 
