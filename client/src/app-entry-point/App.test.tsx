@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { renderWithProviders } from "./utils/test-util";
+import { renderWithProviders } from "../utils/test-util";
 import { App } from "./App";
 
 test("renders App with basic elements", () => {

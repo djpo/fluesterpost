@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Layout } from "./components/Layout";
-import { HomePage } from "./pages/home/HomePage";
-import { SavedCyclesPage } from "./pages/saved/SavedCyclesPage";
+import { Layout } from "../components/Layout";
+import { HomePage } from "../pages/home/HomePage";
+import { SavedCyclesPage } from "../pages/saved/SavedCyclesPage";
 
 const App = (): JSX.Element => (
   <Routes>
