@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import "./App.css";
 
-function App() {
-  const [testData, setTestData] = useState(null);
+function App(): JSX.Element {
+  // const [testData, setTestData] = useState(null);
 
   // useEffect(() => {
   //   fetch("/api")
@@ -15,10 +15,11 @@ function App() {
       <header className="App-header">
         <p>Flüsterpost client</p>
 
-        <p>{!testData ? "Loading..." : testData}</p>
+        {/* <p>{!testData ? "Loading..." : testData}</p> */}
+        <p>it's alive!</p>
       </header>
     </div>
   );
 }
 
-export default App;
+export { App };
