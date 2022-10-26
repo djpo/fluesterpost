@@ -1,5 +1,10 @@
 const path = require("path");
 const express = require("express");
+const { MongoClient, ServerApiVersion } = require("mongodb");
+
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 const PORT = process.env.PORT || 3003;
 
@@ -16,6 +21,31 @@ app.get("/api", (req, res) => {
     });
   }, 800);
 });
+
+const dbUrl = process.env.MONGO_URL;
+const user = process.env.MONGO_USER;
+const password = process.env.MONGO_PASSWORD;
+const connectionOptions = "?retryWrites=true&w=majority";
+const uri = `mongodb+srv://${user}:${password}@${dbUrl}/${connectionOptions}`;
+const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverApi: ServerApiVersion.v1,
+});
+
+async function run() {
+  try {
+    // Connect the client to the server (optional starting in v4.7)
+    await client.connect();
+    // Establish connection
+    const collection = await client.db(process.env.DB_NAME).collection("cycles");
+    console.log(`document count: ${await collection.countDocuments()}`);
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
 
 // All other GET requests not handled before will return our React app
 app.get("*", (req, res) => {
