@@ -1,7 +1,7 @@
 const path = require("path");
 const express = require("express");
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3003;
 
 const app = express();
 
@@ -12,7 +12,7 @@ app.use(express.static(path.resolve(__dirname, "../client/build")));
 app.get("/api", (req, res) => {
   setTimeout(() => {
     res.json({
-      message: `Flüsterpostdienst: ${Math.floor(Math.random() * 100)}`,
+      message: `${Math.floor(Math.random() * 100)}`,
     });
   }, 800);
 });

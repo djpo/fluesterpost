@@ -1,25 +1,19 @@
-// import { useState, useEffect } from "react";
-import "./App.css";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { Layout } from "./components/Layout";
+import { HomePage } from "./pages/home/HomePage";
+import { SavedCyclesPage } from "./pages/saved/SavedCyclesPage";
 
-function App(): JSX.Element {
-  // const [testData, setTestData] = useState(null);
+const App = (): JSX.Element => (
+  <Routes>
+    <Route path="/" element={<Layout />}>
+      <Route index element={<HomePage />} />
 
-  // useEffect(() => {
-  //   fetch("/api")
-  //     .then((res) => res.json())
-  //     .then((data) => setTestData(data.message));
-  // }, []);
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>Flüsterpost client</p>
-
-        {/* <p>{!testData ? "Loading..." : testData}</p> */}
-        <p>it's alive!</p>
-      </header>
-    </div>
-  );
-}
+      <Route path="saved">
+        <Route index element={<SavedCyclesPage />} />
+      </Route>
+    </Route>
+  </Routes>
+);
 
 export { App };
