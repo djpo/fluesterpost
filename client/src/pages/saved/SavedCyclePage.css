@@ -4,3 +4,7 @@
   background-color: rgba(255, 255, 255, 0.4);
   padding: 0.5rem;
 }
+
+.test-button {
+  background-color: red;
+}
