@@ -18,13 +18,7 @@
 
 # env files
 .env
-.env.development
-.env.test
-.env.production
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
 
 # misc
 .DS_Store
