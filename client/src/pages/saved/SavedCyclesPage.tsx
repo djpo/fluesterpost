@@ -7,11 +7,11 @@ import {
   selectIsFetchingSavedCycles,
 } from "../../redux/selectors";
 import { fetchSavedCycles } from "../../redux/actions";
-import type { SavedCycle, SavedCycleStep, ErrorMessage } from "../../types";
-import "./SavedCyclePage.css";
+import { SavedCycle } from "../../components/SavedCycle";
+import type { SavedCycle as SavedCycleType, SavedCycleStep, ErrorMessage } from "../../types";
 
 const SavedCyclesPage = (): JSX.Element => {
-  const savedCycles: SavedCycle[] = useSelector(selectSavedCycles);
+  const savedCycles: SavedCycleType[] = useSelector(selectSavedCycles);
   const isFetchingSavedCycles: boolean = useSelector(selectIsFetchingSavedCycles);
   const errorMessage: ErrorMessage = useSelector(selectErrorMessage);
 
@@ -36,27 +36,8 @@ const SavedCyclesPage = (): JSX.Element => {
 
       {savedCycles.length > 0 ? (
         <>
-          {savedCycles.map(({ _id, originLang, originText, steps }: SavedCycle) => (
-            <div key={_id} className="saved-cycle">
-              <p className="step-lang-box-origin">
-                ({originLang}) {originText}
-              </p>
-              {steps.map((step: SavedCycleStep, stepIndex: number) =>
-                stepIndex === steps.length - 1 ? (
-                  <div key={stepIndex}>
-                    <p className="step-lang-box-origin">
-                      ({step.lang}) {step.text}
-                    </p>
-                  </div>
-                ) : (
-                  <div key={stepIndex}>
-                    <p>
-                      ({step.lang}) {step.text}
-                    </p>
-                  </div>
-                )
-              )}
-            </div>
+          {savedCycles.map(({ _id, originLang, originText, steps }: SavedCycleType) => (
+            <SavedCycle key={_id} originLang={originLang} originText={originText} steps={steps} />
           ))}
         </>
       ) : (
