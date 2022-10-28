@@ -18,12 +18,20 @@ import {
   selectIsFetchingAny,
   selectErrorMessage,
   selectAreInstructionsVisible,
+  selectResultCycle,
 } from "../../redux/selectors";
 import { Instructions } from "./Instructions";
 import { Step } from "./Step";
 import { StepOrigin } from "./StepOrigin";
 import { StepFinal } from "./StepFinal";
-import type { Language, TranslationText, Step as StepType, ErrorMessage } from "../../types";
+import { SavedCycle } from "../../components/SavedCycle";
+import type {
+  Language,
+  TranslationText,
+  Step as StepType,
+  ErrorMessage,
+  ResultCycle,
+} from "../../types";
 import "./HomePage.css";
 
 interface Props {
@@ -50,6 +58,7 @@ const HomePageUnconnected = ({
   const isFetchingAny: boolean = useSelector(selectIsFetchingAny);
   const errorMessage: ErrorMessage = useSelector(selectErrorMessage);
   const areInstructionsVisible: boolean = useSelector(selectAreInstructionsVisible);
+  const resultCycle: ResultCycle = useSelector(selectResultCycle);
 
   const langsWithoutOrigin = supportedLangs.filter((lang) => lang !== originLang);
 
@@ -68,58 +77,81 @@ const HomePageUnconnected = ({
 
       {errorMessage && <p>error: {errorMessage}</p>}
 
-      <StepOrigin
-        isTranslating={isFetchingAny}
-        lang={originLang}
-        text={originText}
-        langs={supportedLangs}
-        chooseLang={updateOriginLang}
-        updateText={updateOriginText}
-      />
-
-      {steps.map((step: StepType, stepIndex: number) =>
-        stepIndex === steps.length - 1 ? (
-          <Fragment key="final_step_container">
-            <br />
-            <button
-              disabled={isFetchingAny}
-              key="button_add_step"
-              className="primary-button"
-              onClick={() => addStep(langsWithoutOrigin)}
-            >
-              add step
-            </button>
-
-            <StepFinal
-              key="final_step"
-              isTranslating={step.isFetching}
-              originLang={step.lang}
-              text={step.text}
-            />
-          </Fragment>
-        ) : (
-          <Step
-            key={stepIndex.toString()}
-            hasRemoveButton={stepIndex !== 0}
-            isTranslating={step.isFetching}
-            lang={step.lang}
-            text={step.text}
-            langs={langsWithoutOrigin}
-            chooseLang={(newLang) => updateStepLang(stepIndex, newLang)}
-            randomizeLang={() => randomizeStepLang(stepIndex, langsWithoutOrigin)}
-            removeStep={() => removeStep(stepIndex)}
+      <div className="columns-container">
+        <div className="home-column">
+          <StepOrigin
+            isTranslating={isFetchingAny}
+            lang={originLang}
+            text={originText}
+            langs={supportedLangs}
+            chooseLang={updateOriginLang}
+            updateText={updateOriginText}
           />
-        )
-      )}
 
-      <br />
-      <button
-        disabled={isFetchingAny || originText === ""}
-        className="primary-button"
-        onClick={() => handleBeginTranslation()}
-      >
-        translate
-      </button>
+          {steps.map((step: StepType, stepIndex: number) =>
+            stepIndex === steps.length - 1 ? (
+              <Fragment key="final_step_container">
+                <br />
+                <button
+                  disabled={isFetchingAny}
+                  key="button_add_step"
+                  className="primary-button"
+                  onClick={() => addStep(langsWithoutOrigin)}
+                >
+                  add step
+                </button>
+
+                <StepFinal
+                  key="final_step"
+                  isTranslating={step.isFetching}
+                  originLang={step.lang}
+                  text={step.text}
+                />
+              </Fragment>
+            ) : (
+              <Step
+                key={stepIndex.toString()}
+                hasRemoveButton={stepIndex !== 0}
+                isTranslating={step.isFetching}
+                lang={step.lang}
+                text={step.text}
+                langs={langsWithoutOrigin}
+                chooseLang={(newLang) => updateStepLang(stepIndex, newLang)}
+                randomizeLang={() => randomizeStepLang(stepIndex, langsWithoutOrigin)}
+                removeStep={() => removeStep(stepIndex)}
+              />
+            )
+          )}
+
+          <br />
+          <button
+            disabled={isFetchingAny || originText === ""}
+            className="primary-button"
+            onClick={() => handleBeginTranslation()}
+          >
+            translate
+          </button>
+        </div>
+
+        <div className="home-column">
+          <SavedCycle
+            originLang={resultCycle.originLang}
+            originText={resultCycle.originText}
+            steps={resultCycle.steps}
+          />
+
+          <div className="result-button-container">
+            <button
+              // disabled={isSavingResultCycle}
+              className="primary-button"
+              // onClick={() => handleSaveResultCycle()}
+              onClick={() => console.log("to save!")}
+            >
+              save this cycle
+            </button>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

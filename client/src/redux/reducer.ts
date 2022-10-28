@@ -21,6 +21,7 @@ import {
   defaultErrorMessage,
   defaultAreInstructionsVisible,
   defaultSavedCycles,
+  defaultResultCycle,
 } from "./defaultState";
 
 const initialState = {
@@ -33,6 +34,7 @@ const initialState = {
   areInstructionsVisible: defaultAreInstructionsVisible,
   savedCycles: defaultSavedCycles,
   isFetchingSavedCycles: false,
+  resultCycle: defaultResultCycle,
 };
 
 /* @ts-ignore */ /* eslint-disable-next-line default-param-last */

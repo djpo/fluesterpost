@@ -1,5 +1,12 @@
 import type { RootState } from "./store";
-import type { Language, TranslationText, Step, ErrorMessage, SavedCycle } from "../types";
+import type {
+  Language,
+  TranslationText,
+  Step,
+  ErrorMessage,
+  SavedCycle,
+  ResultCycle,
+} from "../types";
 
 export const selectSupportedLangs = (state: RootState): Language[] => state.supportedLangs;
 export const selectOriginLang = (state: RootState): Language => state.originLang;
@@ -12,3 +19,4 @@ export const selectAreInstructionsVisible = (state: RootState): boolean =>
 export const selectSavedCycles = (state: RootState): SavedCycle[] => state.savedCycles;
 export const selectIsFetchingSavedCycles = (state: RootState): boolean =>
   state.isFetchingSavedCycles;
+export const selectResultCycle = (state: RootState): ResultCycle => state.resultCycle;

@@ -21,9 +21,12 @@ export interface SavedCycleStep {
   text: TranslationText;
 }
 
-export interface SavedCycle {
-  _id: string;
+export interface ResultCycle {
   originLang: Language;
   originText: TranslationText;
   steps: SavedCycleStep[];
+}
+
+export interface SavedCycle extends ResultCycle {
+  _id: string;
 }

@@ -3,3 +3,20 @@
   border: 1px solid black;
   padding: 10px;
 }
+
+.columns-container {
+  border: 2px solid blue;
+  display: flex;
+  flex-direction: row;
+}
+
+.home-column {
+  border: 2px solid red;
+  margin: 3px;
+  width: 50%;
+}
+
+.result-button-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
