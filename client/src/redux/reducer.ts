@@ -11,6 +11,7 @@ import {
   REMOVE_STEP,
   DISMISS_INSTRUCTIONS,
   UPDATE_IS_FETCHING_SAVED_CYCLES,
+  UPDATE_SAVED_CYCLES,
 } from "./actionTypes";
 import {
   defaultSupportedLangs,
@@ -128,6 +129,12 @@ export function appReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         isFetchingSavedCycles: payload.newIsFetching,
+      };
+    }
+    case UPDATE_SAVED_CYCLES: {
+      return {
+        ...state,
+        savedCycles: payload.newSavedCycles,
       };
     }
     default:

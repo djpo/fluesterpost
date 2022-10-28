@@ -13,6 +13,7 @@ import {
   DISMISS_INSTRUCTIONS,
   FETCH_SAVED_CYCLES,
   UPDATE_IS_FETCHING_SAVED_CYCLES,
+  UPDATE_SAVED_CYCLES,
 } from "./actionTypes";
 import type { Language, TranslationText, ErrorMessage } from "../types";
 
