@@ -10,3 +10,5 @@ export const selectErrorMessage = (state: RootState): ErrorMessage => state.erro
 export const selectAreInstructionsVisible = (state: RootState): boolean =>
   state.areInstructionsVisible;
 export const selectSavedCycles = (state: RootState): SavedCycle[] => state.savedCycles;
+export const selectIsFetchingSavedCycles = (state: RootState): boolean =>
+  state.isFetchingSavedCycles;

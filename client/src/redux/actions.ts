@@ -11,6 +11,8 @@ import {
   ADD_STEP,
   REMOVE_STEP,
   DISMISS_INSTRUCTIONS,
+  FETCH_SAVED_CYCLES,
+  UPDATE_IS_FETCHING_SAVED_CYCLES,
 } from "./actionTypes";
 import type { Language, TranslationText, ErrorMessage } from "../types";
 
@@ -96,4 +98,15 @@ export function removeStep(stepIndexToRemove: number) {
 
 export function dismissInstructions() {
   return { type: DISMISS_INSTRUCTIONS };
+}
+
+export function fetchSavedCycles() {
+  return { type: FETCH_SAVED_CYCLES };
+}
+
+export function updateIsFetchingSavedCycles(newIsFetching: boolean) {
+  return {
+    type: UPDATE_IS_FETCHING_SAVED_CYCLES,
+    payload: { newIsFetching },
+  };
 }

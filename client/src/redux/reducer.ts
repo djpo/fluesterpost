@@ -10,6 +10,7 @@ import {
   ADD_STEP,
   REMOVE_STEP,
   DISMISS_INSTRUCTIONS,
+  UPDATE_IS_FETCHING_SAVED_CYCLES,
 } from "./actionTypes";
 import {
   defaultSupportedLangs,
@@ -30,6 +31,7 @@ const initialState = {
   errorMessage: defaultErrorMessage,
   areInstructionsVisible: defaultAreInstructionsVisible,
   savedCycles: defaultSavedCycles,
+  isFetchingSavedCycles: false,
 };
 
 /* @ts-ignore */ /* eslint-disable-next-line default-param-last */
@@ -120,6 +122,12 @@ export function appReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         areInstructionsVisible: false,
+      };
+    }
+    case UPDATE_IS_FETCHING_SAVED_CYCLES: {
+      return {
+        ...state,
+        isFetchingSavedCycles: payload.newIsFetching,
       };
     }
     default:
