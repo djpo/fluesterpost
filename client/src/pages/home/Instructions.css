@@ -15,8 +15,8 @@
 }
 
 .instructions-button-row {
-  flex-direction: row-reverse;
   display: flex;
+  flex-direction: row-reverse;
 }
 
 .instructions-button-row > button {
