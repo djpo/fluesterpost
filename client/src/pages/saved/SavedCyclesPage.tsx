@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -20,25 +21,20 @@ const SavedCyclesPage = (): JSX.Element => {
     dispatch(fetchSavedCycles());
   };
 
-  const buttonClassName = isFetchingSavedCycles ? "test-button" : "";
+  useEffect(() => {
+    handleGetSavedCycles();
+  }, []);
 
   return (
     <>
       <Link to="/">HomePage</Link>
       <p />
 
+      {isFetchingSavedCycles && <p>loading saved cycles...</p>}
+
       {errorMessage && <p>error: {errorMessage}</p>}
 
-      <button
-        disabled={isFetchingSavedCycles}
-        className={`primary-button ${buttonClassName}`}
-        onClick={() => handleGetSavedCycles()}
-      >
-        {isFetchingSavedCycles ? "getting..." : "get saved cycles"}
-      </button>
-      <p />
-
-      {savedCycles ? (
+      {savedCycles.length > 0 ? (
         <>
           {savedCycles.map(({ _id, originLang, originText, steps }: SavedCycle) => (
             <div key={_id} className="saved-cycle">
@@ -64,7 +60,7 @@ const SavedCyclesPage = (): JSX.Element => {
           ))}
         </>
       ) : (
-        <p>...no saved cycles</p>
+        <p>no saved cycles</p>
       )}
     </>
   );
