@@ -1,10 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectSavedCycles, selectIsFetchingSavedCycles } from "../../redux/selectors";
-import {
-  // fetchSavedCycles,
-  updateIsFetchingSavedCycles,
-} from "../../redux/actions";
+import { fetchSavedCycles } from "../../redux/actions";
 import type { SavedCycle, SavedCycleStep } from "../../types";
 import "./SavedCyclePage.css";
 
@@ -15,8 +12,7 @@ const SavedCyclesPage = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const handleGetSavedCycles = (): void => {
-    // dispatch(fetchSavedCycles());
-    dispatch(updateIsFetchingSavedCycles(!isFetchingSavedCycles));
+    dispatch(fetchSavedCycles());
   };
 
   const buttonClassName = isFetchingSavedCycles ? "test-button" : "";
@@ -27,7 +23,7 @@ const SavedCyclesPage = (): JSX.Element => {
       <p />
 
       <button
-        // disabled={isFetchingSavedCycles}
+        disabled={isFetchingSavedCycles}
         className={`primary-button ${buttonClassName}`}
         onClick={() => handleGetSavedCycles()}
       >
