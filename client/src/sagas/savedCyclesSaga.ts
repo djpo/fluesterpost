@@ -1,6 +1,7 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { getCycles } from "../apis/fetchSavedCycles";
 import {
+  UPDATE_ERROR,
   FETCH_SAVED_CYCLES,
   UPDATE_IS_FETCHING_SAVED_CYCLES,
   UPDATE_SAVED_CYCLES,
@@ -21,7 +22,10 @@ function* fetchCycles() {
       payload: { newSavedCycles: response },
     });
   } catch (err: any) {
-    console.log(err); // TODO handle error
+    yield put({
+      type: UPDATE_ERROR,
+      payload: { newError: `${err.code} - ${err.message}` },
+    });
   } finally {
     yield put({
       type: UPDATE_IS_FETCHING_SAVED_CYCLES,

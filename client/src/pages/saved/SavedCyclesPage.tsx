@@ -1,13 +1,18 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { selectSavedCycles, selectIsFetchingSavedCycles } from "../../redux/selectors";
+import {
+  selectErrorMessage,
+  selectSavedCycles,
+  selectIsFetchingSavedCycles,
+} from "../../redux/selectors";
 import { fetchSavedCycles } from "../../redux/actions";
-import type { SavedCycle, SavedCycleStep } from "../../types";
+import type { SavedCycle, SavedCycleStep, ErrorMessage } from "../../types";
 import "./SavedCyclePage.css";
 
 const SavedCyclesPage = (): JSX.Element => {
   const savedCycles: SavedCycle[] = useSelector(selectSavedCycles);
   const isFetchingSavedCycles: boolean = useSelector(selectIsFetchingSavedCycles);
+  const errorMessage: ErrorMessage = useSelector(selectErrorMessage);
 
   const dispatch = useDispatch();
 
@@ -21,6 +26,8 @@ const SavedCyclesPage = (): JSX.Element => {
     <>
       <Link to="/">HomePage</Link>
       <p />
+
+      {errorMessage && <p>error: {errorMessage}</p>}
 
       <button
         disabled={isFetchingSavedCycles}
