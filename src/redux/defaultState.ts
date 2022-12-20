@@ -112,23 +112,29 @@ export const defaultSupportedLangs: Language[] = [
   "zu",
 ];
 
-export const defaultOriginLang: Language = defaultSupportedLangs[15]; // en
+export const defaultOriginLang: Language = defaultSupportedLangs[15]; // en - English
 
-export const defaultOriginText: TranslationText = "translate me, if you dare";
+export const defaultOriginText: TranslationText =
+  "whisper to me sweet nothings in the pale moonlight";
 
 export const defaultSteps: Step[] = [
   {
-    lang: defaultSupportedLangs[13], // de
+    lang: defaultSupportedLangs[67], // ny - Chichewa
     text: "",
     isFetching: false,
   },
   {
-    lang: defaultSupportedLangs[22], // fr
+    lang: defaultSupportedLangs[98], // uk - Ukrainian
     text: "",
     isFetching: false,
   },
   {
-    lang: defaultSupportedLangs[15], // en
+    lang: defaultSupportedLangs[0], // am - Amharic
+    text: "",
+    isFetching: false,
+  },
+  {
+    lang: defaultSupportedLangs[15], // en - English
     text: "",
     isFetching: false,
   },
