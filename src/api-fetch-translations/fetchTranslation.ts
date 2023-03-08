@@ -35,11 +35,9 @@ const fetchTranslation = async (
   targetLang: Language,
   textToTranslate: TranslationText
 ) => {
-  const urlEncoded = `language/translate/v2/?key=${encodeURIComponent(
-    apiKey
-  )}&q=${encodeURIComponent(textToTranslate)}&target=${encodeURIComponent(
-    targetLang
-  )}&source=${encodeURIComponent(sourceLang)}`;
+  const urlEncoded = `?key=${encodeURIComponent(apiKey)}&q=${encodeURIComponent(
+    textToTranslate
+  )}&target=${encodeURIComponent(targetLang)}&source=${encodeURIComponent(sourceLang)}`;
 
   const params: RequestParams = {
     method: "POST",
