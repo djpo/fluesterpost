@@ -30,21 +30,23 @@ const schema = buildSchema(`
 // query resolver functions
 const root = {
   getCycles: ({ last }) => {
-    const dbUrl = process.env.MONGO_URL;
+    const dbUrl = process.env.MONGO_CLUSTER_URL;
     const user = process.env.MONGO_USER;
     const password = process.env.MONGO_PASSWORD;
     const connectionOptions = "?retryWrites=true&w=majority";
     const uri = `mongodb+srv://${user}:${password}@${dbUrl}/${connectionOptions}`;
+
     const client = new MongoClient(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       serverApi: ServerApiVersion.v1,
     });
+
     async function run() {
       try {
         await client.connect();
 
-        const collection = await client.db(process.env.DB_NAME).collection("cycles");
+        const collection = await client.db(process.env.MONGO_DB_NAME).collection("cycles");
 
         // TODO: limit results to int `last`
         const myCycles = await collection.find().toArray();
