@@ -19,7 +19,7 @@
     "build": "cd client && yarn && yarn build"
   },
   "engines": {
-    "node": "16.13.2"
+    "node": "*"
   },
   "devDependencies": {
     "@types/he": "^1.2.0"
