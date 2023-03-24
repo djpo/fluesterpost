@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "node server/index.js",
-    "build": "cd client && yarn && yarn build"
+    "build": "cd client && yarn && yarn build && cd .."
   },
   "engines": {
     "node": "*"
