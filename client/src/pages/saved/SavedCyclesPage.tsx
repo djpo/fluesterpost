@@ -17,13 +17,9 @@ const SavedCyclesPage = (): JSX.Element => {
 
   const dispatch = useDispatch();
 
-  const handleGetSavedCycles = (): void => {
-    dispatch(fetchSavedCycles());
-  };
-
   useEffect(() => {
-    handleGetSavedCycles();
-  }, []);
+    dispatch(fetchSavedCycles());
+  }, [dispatch]);
 
   return (
     <>
