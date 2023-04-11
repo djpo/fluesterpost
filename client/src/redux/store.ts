@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
 import { appReducer } from "./reducer";
-import { translationSaga } from "../sagas/translationSaga";
+import { rootSaga } from "../sagas/rootSaga";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -11,7 +11,7 @@ export const store = configureStore({
   devTools: process.env.NODE_ENV !== "production",
 });
 
-sagaMiddleware.run(translationSaga);
+sagaMiddleware.run(rootSaga);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

@@ -15,3 +15,15 @@ export interface Event {
     value: string;
   };
 }
+
+export interface SavedCycleStep {
+  lang: Language;
+  text: TranslationText;
+}
+
+export interface SavedCycle {
+  _id: string;
+  originLang: Language;
+  originText: TranslationText;
+  steps: SavedCycleStep[];
+}

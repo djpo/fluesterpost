@@ -1,4 +1,4 @@
-import type { Language, TranslationText, Step, ErrorMessage } from "../types";
+import type { Language, TranslationText, Step, ErrorMessage, SavedCycle } from "../types";
 
 export const defaultSupportedLangs: Language[] = [
   "am",
@@ -143,3 +143,5 @@ export const defaultSteps: Step[] = [
 export const defaultErrorMessage: ErrorMessage = "";
 
 export const defaultAreInstructionsVisible = true;
+
+export const defaultSavedCycles: SavedCycle[] = [];

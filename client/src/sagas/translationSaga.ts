@@ -1,7 +1,7 @@
 import { call, put, select, takeEvery } from "redux-saga/effects";
 import he from "he";
 import { selectOriginLang, selectOriginText, selectSteps } from "../redux/selectors";
-import { fetchTranslation } from "../api-fetch-translations/fetchTranslation";
+import { fetchTranslation } from "../apis/fetchTranslation";
 import {
   UPDATE_STEP_TEXT,
   UPDATE_IS_FETCHING_ANY,
