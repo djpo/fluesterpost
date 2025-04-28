@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import type { JSX } from "react";
 import { connect, useSelector, useDispatch } from "react-redux";
 import {
   updateOriginLang as updateOriginLangAction,

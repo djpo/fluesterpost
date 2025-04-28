@@ -1,6 +1,7 @@
+import type { JSX } from "react";
 import { getLangLabel } from "./l10n/getLangLabel";
-import type { Language, TranslationText, Event } from "./types";
 import "./Step.css";
+import type { Language, TranslationText, Event } from "./types";
 
 interface Props {
   hasRemoveButton: boolean;

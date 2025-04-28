@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import type { Language, TranslationText } from "./types";
 import "./Step.css";
 

@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { useDispatch } from "react-redux";
 import { dismissInstructions } from "./redux/actions";
 import "./Instructions.css";
