@@ -1,4 +1,4 @@
-import type { Language, TranslationText } from "./types";
+import type { Language, TranslationText } from "../../types";
 import "./Step.css";
 
 interface Props {

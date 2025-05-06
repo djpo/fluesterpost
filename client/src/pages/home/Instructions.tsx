@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { dismissInstructions } from "./redux/actions";
+import { dismissInstructions } from "../../redux/actions";
 import "./Instructions.css";
 
 const instructionsText1 =
