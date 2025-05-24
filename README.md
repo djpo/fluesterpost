@@ -5,8 +5,7 @@ see what happens when you translate text through multiple languages, then back i
 ## tech info:
 
 - React.js
-- TypeScript
-- redux sagas
+- Next.js
 - Google Translation API
 
 ## preview
