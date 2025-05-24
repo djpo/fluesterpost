@@ -1,0 +1,9 @@
+.appBody {
+  padding: 3vw 3vw 0 3vw;
+}
+
+.primaryButton {
+  margin-bottom: 10px;
+  border: 1px solid black;
+  padding: 10px;
+}

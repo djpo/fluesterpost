@@ -1,0 +1,30 @@
+.instructions {
+  margin-bottom: 1em;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 1em;
+  font-size: small;
+}
+
+.instructions > p {
+  margin-bottom: 1em;
+}
+
+.instructions > .instructionWithSubstep {
+  margin-bottom: 0.5em;
+}
+
+.substep {
+  margin-left: 2em;
+}
+
+.buttonRow {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.button {
+  border: 0.1em solid gray;
+  background-color: lightgray;
+  padding: 0.5em;
+  cursor: pointer;
+}
