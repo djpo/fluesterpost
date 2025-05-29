@@ -11,7 +11,7 @@ import {
   defaultSupportedLangs,
 } from "@/default-values";
 import { getRandomLang } from "@/lib/utils";
-import styles from "@/ui/home.module.css";
+import styles from "@/ui/steps/steps.module.css";
 import { Language, Step as StepType, TranslationText } from "@/types";
 
 const Steps = (): React.JSX.Element => {
@@ -125,7 +125,6 @@ const Steps = (): React.JSX.Element => {
       {steps.map((step: StepType, stepIndex: number) =>
         stepIndex === steps.length - 1 ? (
           <Fragment key="final_step_container">
-            <br />
             <button
               disabled={isFetchingAny}
               key="button_add_step"

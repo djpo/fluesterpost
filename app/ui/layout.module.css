@@ -1,7 +1,7 @@
 .appHeader {
-  padding: 0 3vw 0 3vw;
+  padding: 0.5em 0.7em;
   display: flex;
-  background-color: #282c34;
-  font-size: calc(10px + 2vmin);
+  background: var(--dark-gray);
+  font-size: 1.5em;
   color: white;
 }

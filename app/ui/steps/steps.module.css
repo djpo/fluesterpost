@@ -1,0 +1,6 @@
+.primaryButton {
+  margin-top: 0.8em;
+  padding: 0.5em;
+  background-color: var(--dark-gray);
+  color: white;
+}
