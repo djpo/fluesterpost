@@ -1,3 +1,4 @@
+import { CiNoWaitingSign, CiShuffle } from "react-icons/ci";
 import { getLangLabel } from "@/l10n/getLangLabel";
 import styles from "@/ui/steps/step.module.css";
 import type { Language, TranslationText, Event } from "@/types";
@@ -37,11 +38,11 @@ const Step = ({
     <div className={styles.stepLangBox}>
       <div className={styles.stepLangBoxTop}>
         <button className={styles.stepLangLittleButton} onClick={randomizeLang}>
-          r
+          <CiShuffle />
         </button>
         {hasRemoveButton && (
           <button className={styles.stepLangLittleButton} onClick={removeStep}>
-            x
+            <CiNoWaitingSign />
           </button>
         )}
       </div>
