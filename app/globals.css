@@ -3,7 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --dark-gray: #282c34;
+  --dark-gray: rgb(40, 44, 52);
+  --dark-gray-translucent: rgba(40, 44, 52, 0.8);
+  --highlight: #e1a493d5;
 }
 
 @theme inline {

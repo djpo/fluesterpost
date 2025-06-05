@@ -6,7 +6,7 @@
 }
 
 .stepRowTranslating {
-  background-color: orange;
+  background-color: var(--highlight);
 }
 
 .stepLeftLineContainer {
@@ -59,13 +59,19 @@
 
 .stepLangLittleButton {
   margin: 0.2em;
-  height: 1em;
-  width: 1em;
+  height: 1.2em;
+  width: 1.2em;
   background-color: var(--dark-gray);
   color: white;
+  padding: 0.1em;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+.stepLangLittleButton:hover {
+  background-color: var(--dark-gray-translucent);
 }
 
 .stepLangBoxBottom {
