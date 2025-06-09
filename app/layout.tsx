@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import styles from "@/ui/layout.module.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,10 +25,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`
+          ${geistSans.variable} ${geistMono.variable} antialiased
+          bg-gradient-to-r from-blue-500 to-purple-500
+          text-(--foreground)
+        `}
       >
-        <header className={styles.appHeader}>
-          <p>Flüsterpost</p>
+        <header className="flex p-3 bg-(--dark-gray-translucent) justify-between">
+          <p className="text-xl font-semibold text-white">Flüsterpost</p>
         </header>
 
         {children}
