@@ -1,4 +1,4 @@
-import { CiNoWaitingSign, CiShuffle } from "react-icons/ci";
+import { RiCloseLargeLine, RiRefreshLine } from "react-icons/ri";
 import { getLangLabel } from "@/l10n/getLangLabel";
 import type { Language, TranslationText, Event } from "@/types";
 
@@ -47,7 +47,7 @@ const Step = ({
           className="size-7 rounded bg-orange-500 flex justify-center items-center cursor-pointer hover:bg-orange-600"
           onClick={randomizeLang}
         >
-          <CiShuffle />
+          <RiRefreshLine />
         </button>
 
         {hasRemoveButton && (
@@ -55,7 +55,7 @@ const Step = ({
             className="ml-2 size-7 rounded bg-orange-500 flex justify-center items-center cursor-pointer hover:bg-orange-600"
             onClick={removeStep}
           >
-            <CiNoWaitingSign />
+            <RiCloseLargeLine />
           </button>
         )}
       </div>
