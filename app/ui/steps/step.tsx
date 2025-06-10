@@ -25,7 +25,7 @@ const Step = ({
 }: Props): React.JSX.Element => (
   <div
     className={`
-      mt-1 bg-gray-300 rounded p-2
+      mt-1 bg-(--white-translucent) rounded p-2
       ${isTranslating && "bg-yellow-500"}
     `}
   >
@@ -44,7 +44,7 @@ const Step = ({
 
       <div className="flex">
         <button
-          className="size-7 rounded bg-orange-500 flex justify-center items-center cursor-pointer hover:bg-orange-600"
+          className="size-7 rounded bg-orange-500 flex justify-center items-center cursor-pointer shadow-md hover:bg-orange-600"
           onClick={randomizeLang}
         >
           <RiRefreshLine />
@@ -52,7 +52,7 @@ const Step = ({
 
         {hasRemoveButton && (
           <button
-            className="ml-2 size-7 rounded bg-orange-500 flex justify-center items-center cursor-pointer hover:bg-orange-600"
+            className="ml-2 size-7 rounded bg-orange-500 flex justify-center items-center cursor-pointer shadow-md hover:bg-orange-600"
             onClick={removeStep}
           >
             <RiCloseLargeLine />

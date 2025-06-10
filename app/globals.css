@@ -6,4 +6,6 @@
   --dark-gray: rgb(40, 44, 52);
   --dark-gray-translucent: rgba(40, 44, 52, 0.6);
   --highlight: #e1a493d5;
+  --white-translucent: rgba(220, 220, 220, 0.8);
+  --gray-translucent: rgba(120, 120, 120, 0.4);
 }

@@ -127,7 +127,7 @@ const Steps = (): React.JSX.Element => {
             <button
               disabled={isFetchingAny}
               key="button_add_step"
-              className="mt-1 rounded bg-orange-500 p-1 hover:bg-orange-600"
+              className="mt-1 rounded bg-orange-500 p-1 shadow-md hover:bg-orange-600"
               onClick={() => addStep(langsWithoutOrigin)}
             >
               add step
@@ -159,7 +159,7 @@ const Steps = (): React.JSX.Element => {
 
       <button
         disabled={isFetchingAny || originText === ""}
-        className="mt-1 rounded bg-orange-500 p-1 hover:bg-orange-600"
+        className="mt-1 rounded bg-orange-500 p-1 shadow-md hover:bg-orange-600"
         onClick={() => handleBeginCycle()}
       >
         translate

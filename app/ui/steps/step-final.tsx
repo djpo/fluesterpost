@@ -14,7 +14,7 @@ const StepFinal = ({
 }: Props): React.JSX.Element => (
   <div
     className={`
-      mt-1 bg-gray-300 rounded p-2
+      mt-1 bg-(--white-translucent) rounded p-2
       ${isTranslating && "bg-yellow-500"}
     `}
   >
