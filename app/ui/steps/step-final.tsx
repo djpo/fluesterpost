@@ -1,4 +1,4 @@
-import styles from "@/ui/steps/step.module.css";
+import { getLangLabel } from "@/l10n/getLangLabel";
 import type { Language, TranslationText } from "@/types";
 
 interface Props {
@@ -13,23 +13,16 @@ const StepFinal = ({
   text,
 }: Props): React.JSX.Element => (
   <div
-    className={
-      isTranslating
-        ? `${styles.stepRow} ${styles.stepRowTranslating}`
-        : styles.stepRow
-    }
+    className={`
+      mt-1 bg-gray-300 rounded p-2
+      ${isTranslating && "bg-yellow-500"}
+    `}
   >
-    <div className={styles.stepLeftLineContainer}>
-      <div className={`${styles.stepLeftLine} ${styles.stepLeftLineFinal}`} />
+    <div className="h-7 w-55 bg-gray-400 rounded border pl-1 cursor-pointer">
+      ({originLang.toUpperCase()}) {getLangLabel(originLang)}
     </div>
 
-    <div className={`${styles.stepLangBox} ${styles.stepLangBoxOrigin}`}>
-      <div className={styles.stepLangBoxBottom}>
-        <p className={styles.languagePickerSpacer}>{originLang}</p>
-      </div>
-    </div>
-
-    <div className={styles.stepText}>
+    <div className="mt-2 min-h-13 border rounded bg-gray-200 px-1">
       <p>{text}</p>
     </div>
   </div>

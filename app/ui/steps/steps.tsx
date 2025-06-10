@@ -11,7 +11,6 @@ import {
   defaultSupportedLangs,
 } from "@/default-values";
 import { getRandomLang } from "@/lib/utils";
-import styles from "@/ui/steps/steps.module.css";
 import { Language, Step as StepType, TranslationText } from "@/types";
 
 const Steps = (): React.JSX.Element => {
@@ -112,7 +111,7 @@ const Steps = (): React.JSX.Element => {
   }, [currentStep]);
 
   return (
-    <>
+    <div>
       <StepOrigin
         isTranslating={isFetchingAny}
         lang={originLang}
@@ -128,7 +127,7 @@ const Steps = (): React.JSX.Element => {
             <button
               disabled={isFetchingAny}
               key="button_add_step"
-              className={styles.primaryButton}
+              className="mt-1 rounded bg-orange-500 p-1 hover:bg-orange-600"
               onClick={() => addStep(langsWithoutOrigin)}
             >
               add step
@@ -160,12 +159,12 @@ const Steps = (): React.JSX.Element => {
 
       <button
         disabled={isFetchingAny || originText === ""}
-        className={styles.primaryButton}
+        className="mt-1 rounded bg-orange-500 p-1 hover:bg-orange-600"
         onClick={() => handleBeginCycle()}
       >
         translate
       </button>
-    </>
+    </div>
   );
 };
 
