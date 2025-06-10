@@ -1,6 +1,7 @@
 "use client";
 
 import { Fragment, useState, useEffect } from "react";
+import { usePrevious } from "@/lib/hooks/usePrevious";
 import { StepOrigin } from "@/ui/steps/step-origin";
 import { Step } from "@/ui/steps/step";
 import { StepFinal } from "@/ui/steps/step-final";
@@ -21,6 +22,7 @@ const Steps = (): React.JSX.Element => {
   const [steps, setSteps] = useState<StepType[]>(defaultSteps);
   const [isFetchingAny, setIsFetchingAny] = useState<boolean>(false);
   const [currentStep, setCurrentStep] = useState<number>(-1);
+  const previousStepsLength = usePrevious(steps.length);
 
   const langsWithoutOrigin = supportedLangs.filter(
     (lang) => lang !== originLang
@@ -109,6 +111,17 @@ const Steps = (): React.JSX.Element => {
       }
     }
   }, [currentStep]);
+
+  // when a new step is added, scroll to the bottom of the page
+  useEffect(() => {
+    if (!previousStepsLength || steps.length > previousStepsLength) {
+      window.scroll({
+        top: document.documentElement.scrollHeight,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+  }, [steps, previousStepsLength]);
 
   return (
     <div>
