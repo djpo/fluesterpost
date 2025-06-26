@@ -1,4 +1,10 @@
-import type { Language, TranslationText, Step, ErrorMessage } from "@/types";
+import type {
+  Language,
+  TranslationText,
+  Step,
+  ErrorMessage,
+  SavedStep,
+} from "@/types";
 
 export const defaultSupportedLangs: Language[] = [
   "am",
@@ -137,6 +143,25 @@ export const defaultSteps: Step[] = [
     lang: defaultSupportedLangs[15], // en - English
     text: "",
     isFetching: false,
+  },
+];
+
+export const defaultSavedSteps: SavedStep[] = [
+  {
+    lang: defaultSupportedLangs[15], // en - English
+    text: "oh yeah",
+  },
+  {
+    lang: defaultSupportedLangs[98], // uk - Ukrainian
+    text: "sumn Ukrainian",
+  },
+  {
+    lang: defaultSupportedLangs[0], // am - Amharic
+    text: "sumn Amharic",
+  },
+  {
+    lang: defaultSupportedLangs[15], // en - English
+    text: "o yea",
   },
 ];
 

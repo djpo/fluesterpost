@@ -10,6 +10,11 @@ export interface Step {
   isFetching: boolean;
 }
 
+export interface SavedStep {
+  lang: Language;
+  text: TranslationText;
+}
+
 export interface Event {
   target: {
     value: string;
