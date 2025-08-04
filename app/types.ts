@@ -20,3 +20,9 @@ export interface Event {
     value: string;
   };
 }
+
+export interface Name {
+  id: number;
+  created_at: string;
+  name: string;
+}
