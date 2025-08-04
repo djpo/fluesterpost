@@ -26,3 +26,9 @@ export interface Name {
   created_at: string;
   name: string;
 }
+
+export interface TextArray {
+  id: number;
+  created_at: string;
+  textarray: string[];
+}
