@@ -20,3 +20,15 @@ export interface Event {
     value: string;
   };
 }
+
+export interface CycleReceived {
+  id: number;
+  created_at: string;
+  cycle_json: string; // JSON string of the saved steps
+}
+
+export interface Cycle {
+  id: number;
+  created_at: string;
+  steps: SavedStep[];
+}
