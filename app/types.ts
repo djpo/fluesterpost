@@ -21,18 +21,6 @@ export interface Event {
   };
 }
 
-export interface Name {
-  id: number;
-  created_at: string;
-  name: string;
-}
-
-export interface TextArray {
-  id: number;
-  created_at: string;
-  textarray: string[];
-}
-
 export interface CycleReceived {
   id: number;
   created_at: string;

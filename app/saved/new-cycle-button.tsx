@@ -7,7 +7,7 @@ interface Props {
 export const NewCycleButton = ({ handler }: Props): React.JSX.Element => {
   const handleAddCycle = async (): Promise<void> => {
     await handler();
-    alert("a new name has been saved to the shared bucket");
+    alert("a new (placeholder) cycle has been saved");
   };
 
   return (
