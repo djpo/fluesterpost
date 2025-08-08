@@ -29,6 +29,6 @@ export interface CycleReceived {
 
 export interface Cycle {
   id: number;
-  created_at: string;
+  createdAt: string;
   steps: SavedStep[];
 }

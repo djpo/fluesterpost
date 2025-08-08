@@ -1,7 +1,8 @@
 "use server";
 
 import { createClient } from "@supabase/supabase-js";
-import { NewCycleButton } from "@/saved/new-cycle-button";
+import { NewCycleButton } from "@/ui/saved-cycles/new-cycle-button";
+import { SavedCycle } from "@/ui/saved-cycles/saved-cycle";
 import { defaultSavedSteps } from "@/default-values";
 import { Cycle, CycleReceived, SavedStep } from "@/types";
 
@@ -29,7 +30,7 @@ export default async function Saved(): Promise<React.JSX.Element> {
   const cyclesReceived: CycleReceived[] = await getCycles();
   const cycles: Cycle[] = cyclesReceived.map((cycle) => ({
     id: cycle.id,
-    created_at: cycle.created_at,
+    createdAt: cycle.created_at,
     steps: JSON.parse(cycle.cycle_json) as SavedStep[],
   }));
 
@@ -42,17 +43,12 @@ export default async function Saved(): Promise<React.JSX.Element> {
 
         {cycles.map((cycle: Cycle, cycleIndex: number) => {
           return (
-            <div key={cycleIndex} className="mb-3 border p-2">
-              <ul>
-                {cycle.steps.map((step: SavedStep, stepIndex: number) => {
-                  return (
-                    <li key={stepIndex} className="mb-1">
-                      {step.lang}: {step.text}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+            <SavedCycle
+              key={cycleIndex}
+              cycleNumber={cycle.id}
+              date={cycle.createdAt}
+              steps={cycle.steps}
+            />
           );
         })}
       </div>
