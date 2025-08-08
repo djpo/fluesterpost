@@ -1,7 +1,12 @@
 "use server";
 
+import { createClient } from "@supabase/supabase-js";
 import { defaultSavedSteps } from "@/default-values";
 import { SavedStep } from "@/types";
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
+const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
 export default async function Saved(): Promise<React.JSX.Element> {
   const savedCycles: SavedStep[][] = [
