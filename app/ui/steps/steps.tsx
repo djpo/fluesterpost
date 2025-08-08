@@ -5,6 +5,7 @@ import { usePrevious } from "@/lib/hooks/usePrevious";
 import { StepOrigin } from "@/ui/steps/step-origin";
 import { Step } from "@/ui/steps/step";
 import { StepFinal } from "@/ui/steps/step-final";
+import { CycleResult } from "@/ui/steps/cycle-result";
 import {
   defaultOriginLang,
   defaultOriginText,
@@ -22,6 +23,9 @@ const Steps = (): React.JSX.Element => {
   const [steps, setSteps] = useState<StepType[]>(defaultSteps);
   const [isFetchingAny, setIsFetchingAny] = useState<boolean>(false);
   const [currentStep, setCurrentStep] = useState<number>(-1);
+  const [pageState, setPageState] = useState<"edit" | "translate" | "result">(
+    "edit"
+  );
   const previousStepsLength = usePrevious(steps.length);
 
   const langsWithoutOrigin = supportedLangs.filter(
@@ -101,6 +105,7 @@ const Steps = (): React.JSX.Element => {
       if (currentStep > steps.length - 1) {
         setIsFetchingAny(false);
         setCurrentStep(-1);
+        setPageState("result");
       } else {
         setSteps(
           steps.map((step, i) =>
@@ -122,6 +127,10 @@ const Steps = (): React.JSX.Element => {
       });
     }
   }, [steps, previousStepsLength]);
+
+  if (pageState === "result") {
+    return <CycleResult steps={steps} />;
+  }
 
   return (
     <div>
@@ -149,7 +158,7 @@ const Steps = (): React.JSX.Element => {
             <StepFinal
               key="final_step"
               isTranslating={step.isFetching}
-              originLang={step.lang}
+              lang={step.lang}
               text={step.text}
             />
           </Fragment>
