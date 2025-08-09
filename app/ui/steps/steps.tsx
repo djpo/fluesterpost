@@ -14,6 +14,7 @@ import {
 } from "@/default-values";
 import { getRandomLang } from "@/lib/utils";
 import { Language, Step as StepType, TranslationText } from "@/types";
+import { addCycle } from "@/lib/savedCycles";
 
 const Steps = (): React.JSX.Element => {
   const supportedLangs: Language[] = defaultSupportedLangs;
@@ -129,7 +130,21 @@ const Steps = (): React.JSX.Element => {
   }, [steps, previousStepsLength]);
 
   if (pageState === "result") {
-    return <CycleResult steps={steps} />;
+    function handleEdit() {
+      setPageState("edit");
+    }
+    async function handleSave() {
+      await addCycle();
+      alert("cycle saved! check out the Saved page to see other saved cycles.");
+      setPageState("edit");
+    }
+    return (
+      <CycleResult
+        steps={steps}
+        handleEdit={handleEdit}
+        handleSave={handleSave}
+      />
+    );
   }
 
   return (

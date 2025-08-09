@@ -3,27 +3,26 @@ import { StepFinal } from "@/ui/steps/step-final";
 
 interface Props {
   steps: SavedStep[];
+  handleEdit: () => void;
+  handleSave: () => void;
 }
 
-export const CycleResult = ({ steps }: Props): React.JSX.Element => {
-  const handleEdit = (): void => {
-    console.log("handleEdit");
-  };
-  const handleSave = (): void => {
-    console.log("handleSave");
-  };
-
+export const CycleResult = ({
+  steps,
+  handleEdit,
+  handleSave,
+}: Props): React.JSX.Element => {
   return (
     <div>
       <button
-        className="mb-3 p-3 bg-(--gray-translucent) border rounded cursor-pointer"
+        className="mb-2 px-3 py-2 bg-(--gray-translucent) border rounded cursor-pointer"
         onClick={handleEdit}
       >
         edit
       </button>
 
       <button
-        className="mb-3 p-3 bg-(--gray-translucent) border rounded cursor-pointer"
+        className="mb-2 ml-3 px-3 py-2 bg-(--gray-translucent) border rounded cursor-pointer"
         onClick={handleSave}
       >
         save
