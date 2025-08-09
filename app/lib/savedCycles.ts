@@ -1,7 +1,6 @@
 "use server";
 
 import { createClient } from "@supabase/supabase-js";
-import { defaultSavedSteps } from "@/default-values";
 import { Cycle, CycleReceived, SavedStep } from "@/types";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
@@ -24,11 +23,11 @@ export async function getCycles(): Promise<Cycle[]> {
   }));
 }
 
-export async function addCycle(): Promise<void> {
+export async function addCycle(steps: SavedStep[]): Promise<void> {
   "use server";
   const { data, error } = await supabaseClient
     .from("cycles")
-    .insert({ cycle_json: JSON.stringify(defaultSavedSteps) })
+    .insert({ cycle_json: JSON.stringify(steps) })
     .select();
   if (error) throw error;
 }

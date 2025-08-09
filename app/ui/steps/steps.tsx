@@ -130,17 +130,25 @@ const Steps = (): React.JSX.Element => {
   }, [steps, previousStepsLength]);
 
   if (pageState === "result") {
+    const stepsResult = [
+      { lang: originLang, text: originText },
+      ...steps.map((step) => ({
+        lang: step.lang,
+        text: step.text,
+      })),
+    ];
+
     function handleEdit() {
       setPageState("edit");
     }
     async function handleSave() {
-      await addCycle();
+      await addCycle(stepsResult);
       alert("cycle saved! check out the Saved page to see other saved cycles.");
       setPageState("edit");
     }
     return (
       <CycleResult
-        steps={steps}
+        steps={stepsResult}
         handleEdit={handleEdit}
         handleSave={handleSave}
       />
