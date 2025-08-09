@@ -4,21 +4,19 @@ export type TranslationText = string;
 
 export type ErrorMessage = string;
 
-export interface Step {
-  lang: Language;
-  text: TranslationText;
-  isFetching: boolean;
-}
-
-export interface SavedStep {
-  lang: Language;
-  text: TranslationText;
-}
-
 export interface Event {
   target: {
     value: string;
   };
+}
+
+export interface CycleStep {
+  lang: Language;
+  text: TranslationText;
+}
+
+export interface CycleStepWithFetching extends CycleStep {
+  isFetching: boolean;
 }
 
 export interface CycleReceived {
@@ -30,5 +28,5 @@ export interface CycleReceived {
 export interface Cycle {
   id: number;
   createdAt: string;
-  steps: SavedStep[];
+  steps: CycleStep[];
 }

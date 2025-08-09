@@ -1,7 +1,7 @@
 "use server";
 
 import { createClient } from "@supabase/supabase-js";
-import { Cycle, CycleReceived, SavedStep } from "@/types";
+import { Cycle, CycleReceived, CycleStep } from "@/types";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
@@ -19,11 +19,11 @@ export async function getCycles(): Promise<Cycle[]> {
   return cyclesReceived.map((cycle) => ({
     id: cycle.id,
     createdAt: cycle.created_at,
-    steps: JSON.parse(cycle.cycle_json) as SavedStep[],
+    steps: JSON.parse(cycle.cycle_json) as CycleStep[],
   }));
 }
 
-export async function addCycle(steps: SavedStep[]): Promise<void> {
+export async function addCycle(steps: CycleStep[]): Promise<void> {
   "use server";
   const { data, error } = await supabaseClient
     .from("cycles")

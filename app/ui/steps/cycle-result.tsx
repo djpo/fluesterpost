@@ -1,8 +1,8 @@
-import type { SavedStep } from "@/types";
+import type { CycleStep } from "@/types";
 import { StepFinal } from "@/ui/steps/step-final";
 
 interface Props {
-  steps: SavedStep[];
+  steps: CycleStep[];
   handleEdit: () => void;
   handleSave: () => void;
 }
@@ -28,7 +28,7 @@ export const CycleResult = ({
         save
       </button>
 
-      {steps.map((step: SavedStep, stepIndex: number) => (
+      {steps.map((step: CycleStep, stepIndex: number) => (
         <StepFinal
           key={stepIndex}
           isTranslating={false}

@@ -1,10 +1,14 @@
 import type {
+  CycleStep,
+  CycleStepWithFetching,
+  ErrorMessage,
   Language,
   TranslationText,
-  Step,
-  ErrorMessage,
-  SavedStep,
 } from "@/types";
+
+export const defaultErrorMessage: ErrorMessage = "";
+
+export const defaultAreInstructionsVisible = true;
 
 export const defaultSupportedLangs: Language[] = [
   "am",
@@ -123,7 +127,7 @@ export const defaultOriginLang: Language = defaultSupportedLangs[15]; // en - En
 export const defaultOriginText: TranslationText =
   "whisper to me sweet nothings in the pale moonlight";
 
-export const defaultSteps: Step[] = [
+export const defaultCycleStepsWithFetching: CycleStepWithFetching[] = [
   {
     lang: defaultSupportedLangs[21], // fi - Finnish
     text: "",
@@ -146,7 +150,7 @@ export const defaultSteps: Step[] = [
   },
 ];
 
-export const defaultSavedSteps: SavedStep[] = [
+export const defaultCycleStepsToSave: CycleStep[] = [
   {
     lang: defaultSupportedLangs[15], // en - English
     text: "oh yeah",
@@ -164,7 +168,3 @@ export const defaultSavedSteps: SavedStep[] = [
     text: "o yea",
   },
 ];
-
-export const defaultErrorMessage: ErrorMessage = "";
-
-export const defaultAreInstructionsVisible = true;

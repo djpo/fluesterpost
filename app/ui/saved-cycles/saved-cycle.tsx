@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { SavedStep } from "@/types";
+import { CycleStep } from "@/types";
 import { getLangLabel } from "@/l10n/getLangLabel";
 
 interface Props {
   cycleNumber: number;
   date: string;
-  steps: SavedStep[];
+  steps: CycleStep[];
 }
 
 export const SavedCycle = ({

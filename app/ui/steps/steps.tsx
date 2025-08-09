@@ -2,26 +2,28 @@
 
 import { Fragment, useState, useEffect } from "react";
 import { usePrevious } from "@/lib/hooks/usePrevious";
+import { getRandomLang } from "@/lib/utils";
+import { addCycle } from "@/lib/savedCycles";
 import { StepOrigin } from "@/ui/steps/step-origin";
 import { Step } from "@/ui/steps/step";
 import { StepFinal } from "@/ui/steps/step-final";
 import { CycleResult } from "@/ui/steps/cycle-result";
 import {
+  defaultCycleStepsWithFetching,
   defaultOriginLang,
   defaultOriginText,
-  defaultSteps,
   defaultSupportedLangs,
 } from "@/default-values";
-import { getRandomLang } from "@/lib/utils";
-import { Language, Step as StepType, TranslationText } from "@/types";
-import { addCycle } from "@/lib/savedCycles";
+import { Language, CycleStepWithFetching, TranslationText } from "@/types";
 
 const Steps = (): React.JSX.Element => {
   const supportedLangs: Language[] = defaultSupportedLangs;
   const [originLang, setOriginLang] = useState<Language>(defaultOriginLang);
   const [originText, setOriginText] =
     useState<TranslationText>(defaultOriginText);
-  const [steps, setSteps] = useState<StepType[]>(defaultSteps);
+  const [steps, setSteps] = useState<CycleStepWithFetching[]>(
+    defaultCycleStepsWithFetching
+  );
   const [isFetchingAny, setIsFetchingAny] = useState<boolean>(false);
   const [currentStep, setCurrentStep] = useState<number>(-1);
   const [pageState, setPageState] = useState<"edit" | "translate" | "result">(
@@ -166,7 +168,7 @@ const Steps = (): React.JSX.Element => {
         updateText={updateOriginText}
       />
 
-      {steps.map((step: StepType, stepIndex: number) =>
+      {steps.map((step: CycleStepWithFetching, stepIndex: number) =>
         stepIndex === steps.length - 1 ? (
           <Fragment key="final_step_container">
             <button
