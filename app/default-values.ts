@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import type {
   CycleStep,
   CycleStepWithFetching,
@@ -129,21 +130,25 @@ export const defaultOriginText: TranslationText =
 
 export const defaultCycleStepsWithFetching: CycleStepWithFetching[] = [
   {
+    id: uuidv4(),
     lang: defaultSupportedLangs[21], // fi - Finnish
     text: "",
     isFetching: false,
   },
   {
+    id: uuidv4(),
     lang: defaultSupportedLangs[98], // uk - Ukrainian
     text: "",
     isFetching: false,
   },
   {
+    id: uuidv4(),
     lang: defaultSupportedLangs[0], // am - Amharic
     text: "",
     isFetching: false,
   },
   {
+    id: uuidv4(),
     lang: defaultSupportedLangs[15], // en - English
     text: "",
     isFetching: false,

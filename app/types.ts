@@ -11,6 +11,7 @@ export interface Event {
 }
 
 export interface CycleStep {
+  id: string;
   lang: Language;
   text: TranslationText;
 }

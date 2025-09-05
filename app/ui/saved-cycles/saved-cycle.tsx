@@ -40,7 +40,7 @@ export const SavedCycle = ({
           </div>
 
           {steps.map((step, stepIndex: number) => (
-            <div className="mt-1 flex direction-row">
+            <div key={step.id} className="mt-1 flex direction-row">
               <div className="h-7 mr-2 bg-gray-400 rounded border pl-1 pr-1">
                 <p>{getLangLabel(step.lang)}</p>
               </div>

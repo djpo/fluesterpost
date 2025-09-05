@@ -1,6 +1,7 @@
 "use client";
 
 import { Fragment, useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { usePrevious } from "@/lib/hooks/usePrevious";
 import { getRandomLang } from "@/lib/utils";
 import { addCycle } from "@/lib/savedCycles";
@@ -14,7 +15,12 @@ import {
   defaultOriginText,
   defaultSupportedLangs,
 } from "@/default-values";
-import { Language, CycleStepWithFetching, TranslationText } from "@/types";
+import {
+  Language,
+  CycleStep,
+  CycleStepWithFetching,
+  TranslationText,
+} from "@/types";
 
 const Steps = (): React.JSX.Element => {
   const supportedLangs: Language[] = defaultSupportedLangs;
@@ -60,6 +66,7 @@ const Steps = (): React.JSX.Element => {
     setSteps([
       ...allButLastStep,
       {
+        id: uuidv4(),
         lang: getRandomLang(langsWithoutOrigin),
         text: "",
         isFetching: false,
@@ -132,9 +139,10 @@ const Steps = (): React.JSX.Element => {
   }, [steps, previousStepsLength]);
 
   if (pageState === "result") {
-    const stepsResult = [
-      { lang: originLang, text: originText },
+    const stepsResult: CycleStep[] = [
+      { id: uuidv4(), lang: originLang, text: originText },
       ...steps.map((step) => ({
+        id: step.id,
         lang: step.lang,
         text: step.text,
       })),
@@ -170,10 +178,9 @@ const Steps = (): React.JSX.Element => {
 
       {steps.map((step: CycleStepWithFetching, stepIndex: number) =>
         stepIndex === steps.length - 1 ? (
-          <Fragment key="final_step_container">
+          <Fragment key={step.id}>
             <button
               disabled={isFetchingAny}
-              key="button_add_step"
               className="mt-1 rounded bg-orange-500 p-1 shadow-md hover:bg-orange-600"
               onClick={() => addStep(langsWithoutOrigin)}
             >
@@ -181,7 +188,6 @@ const Steps = (): React.JSX.Element => {
             </button>
 
             <StepFinal
-              key="final_step"
               isTranslating={step.isFetching}
               lang={step.lang}
               text={step.text}
@@ -189,7 +195,7 @@ const Steps = (): React.JSX.Element => {
           </Fragment>
         ) : (
           <Step
-            key={stepIndex.toString()}
+            key={step.id}
             hasRemoveButton={stepIndex !== 0}
             isTranslating={step.isFetching}
             lang={step.lang}

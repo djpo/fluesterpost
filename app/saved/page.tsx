@@ -15,7 +15,7 @@ export default async function Saved(): Promise<React.JSX.Element> {
         {cycles.map((cycle: Cycle, cycleIndex: number) => {
           return (
             <SavedCycle
-              key={cycleIndex}
+              key={cycle.id.toString()}
               cycleNumber={cycle.id}
               date={cycle.createdAt}
               steps={cycle.steps}
