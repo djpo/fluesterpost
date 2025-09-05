@@ -1,10 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import type {
-  CycleStep,
-  ErrorMessage,
-  Language,
-  TranslationText,
-} from "@/types";
+import type { CycleStep, ErrorMessage, Language } from "@/types";
 
 export const defaultErrorMessage: ErrorMessage = "";
 
@@ -122,12 +117,12 @@ export const defaultSupportedLangs: Language[] = [
   "zu",
 ];
 
-export const defaultOriginLang: Language = defaultSupportedLangs[15]; // en - English
-
-export const defaultOriginText: TranslationText =
-  "whisper to me sweet nothings in the pale moonlight";
-
 export const defaultCycleSteps: CycleStep[] = [
+  {
+    id: uuidv4(),
+    lang: defaultSupportedLangs[15], // en - English
+    text: "whisper to me sweet nothings in the pale moonlight",
+  },
   {
     id: uuidv4(),
     lang: defaultSupportedLangs[21], // fi - Finnish

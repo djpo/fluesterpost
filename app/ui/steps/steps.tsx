@@ -9,19 +9,11 @@ import { StepOrigin } from "@/ui/steps/step-origin";
 import { Step } from "@/ui/steps/step";
 import { StepFinal } from "@/ui/steps/step-final";
 import { CycleResult } from "@/ui/steps/cycle-result";
-import {
-  defaultCycleSteps,
-  defaultOriginLang,
-  defaultOriginText,
-  defaultSupportedLangs,
-} from "@/default-values";
+import { defaultCycleSteps, defaultSupportedLangs } from "@/default-values";
 import { CycleStep, Language, TranslationText } from "@/types";
 
 const Steps = (): React.JSX.Element => {
   const supportedLangs: Language[] = defaultSupportedLangs;
-  const [originLang, setOriginLang] = useState<Language>(defaultOriginLang);
-  const [originText, setOriginText] =
-    useState<TranslationText>(defaultOriginText);
   const [steps, setSteps] = useState<CycleStep[]>(defaultCycleSteps);
   const [fetchingStepIndex, setFetchingStepIndex] = useState<number>(-1);
   const [pageState, setPageState] = useState<"edit" | "translate" | "result">(
@@ -29,15 +21,21 @@ const Steps = (): React.JSX.Element => {
   );
   const previousStepsLength = usePrevious(steps.length);
   const langsWithoutOrigin = supportedLangs.filter(
-    (lang) => lang !== originLang
+    (lang) => lang !== steps[0].lang
   );
   const isFetchingAny = fetchingStepIndex > -1;
 
   const updateOriginLang = (newLang: Language): void => {
-    setOriginLang(newLang);
+    setSteps(
+      steps.map((step, i) =>
+        i === 0 || i === steps.length - 1 ? { ...step, lang: newLang } : step
+      )
+    );
   };
   const updateOriginText = (newText: TranslationText): void => {
-    setOriginText(newText);
+    setSteps(
+      steps.map((step, i) => (i === 0 ? { ...step, text: newText } : step))
+    );
   };
   const updateStepLang = (stepId: string, newLang: Language) => {
     setSteps(
@@ -70,9 +68,8 @@ const Steps = (): React.JSX.Element => {
   };
 
   const fetchStepTranslation = async (stepIndex: number) => {
-    const sourceLang = stepIndex === 0 ? originLang : steps[stepIndex - 1].lang;
-    const textToTranslate =
-      stepIndex === 0 ? originText : steps[stepIndex - 1].text;
+    const sourceLang = steps[stepIndex - 1].lang;
+    const textToTranslate = steps[stepIndex - 1].text;
 
     const translationResponse = await fetch("api/translate", {
       method: "POST",
@@ -95,7 +92,7 @@ const Steps = (): React.JSX.Element => {
   };
 
   const handleBeginCycle = async () => {
-    setFetchingStepIndex(0);
+    setFetchingStepIndex(1);
   };
 
   useEffect(() => {
@@ -122,26 +119,17 @@ const Steps = (): React.JSX.Element => {
   }, [steps, previousStepsLength]);
 
   if (pageState === "result") {
-    const stepsResult: CycleStep[] = [
-      { id: uuidv4(), lang: originLang, text: originText },
-      ...steps.map((step) => ({
-        id: step.id,
-        lang: step.lang,
-        text: step.text,
-      })),
-    ];
-
     function handleEdit() {
       setPageState("edit");
     }
     async function handleSave() {
-      await addCycle(stepsResult);
+      await addCycle(steps);
       alert("cycle saved! check out the Saved page to see other saved cycles.");
       setPageState("edit");
     }
     return (
       <CycleResult
-        steps={stepsResult}
+        steps={steps}
         handleEdit={handleEdit}
         handleSave={handleSave}
       />
@@ -151,47 +139,53 @@ const Steps = (): React.JSX.Element => {
   return (
     <div>
       <StepOrigin
-        lang={originLang}
-        text={originText}
+        lang={steps[0].lang}
+        text={steps[0].text}
         langs={supportedLangs}
         chooseLang={updateOriginLang}
         updateText={updateOriginText}
       />
 
-      {steps.map((step: CycleStep, stepIndex: number) =>
-        stepIndex === steps.length - 1 ? (
-          <Fragment key={step.id}>
-            <button
-              disabled={isFetchingAny}
-              className="mt-1 rounded bg-orange-500 p-1 shadow-md hover:bg-orange-600 disabled:bg-orange-700"
-              onClick={() => addStep(langsWithoutOrigin)}
-            >
-              add language
-            </button>
+      {steps.map((step: CycleStep, stepIndex: number) => {
+        if (stepIndex === steps.length - 1) {
+          return (
+            <Fragment key={step.id}>
+              <button
+                disabled={isFetchingAny}
+                className="mt-1 rounded bg-orange-500 p-1 shadow-md hover:bg-orange-600 disabled:bg-orange-700"
+                onClick={() => addStep(langsWithoutOrigin)}
+              >
+                add language
+              </button>
 
-            <StepFinal
+              <StepFinal
+                isTranslating={stepIndex === fetchingStepIndex}
+                lang={step.lang}
+                text={step.text}
+              />
+            </Fragment>
+          );
+        } else if (stepIndex > 0) {
+          return (
+            <Step
+              key={step.id}
+              hasRemoveButton={stepIndex > 1}
               isTranslating={stepIndex === fetchingStepIndex}
               lang={step.lang}
               text={step.text}
+              langs={langsWithoutOrigin}
+              chooseLang={(newLang) => updateStepLang(step.id, newLang)}
+              randomizeLang={() =>
+                randomizeStepLang(step.id, langsWithoutOrigin)
+              }
+              removeStep={() => removeStep(step.id)}
             />
-          </Fragment>
-        ) : (
-          <Step
-            key={step.id}
-            hasRemoveButton={stepIndex !== 0}
-            isTranslating={stepIndex === fetchingStepIndex}
-            lang={step.lang}
-            text={step.text}
-            langs={langsWithoutOrigin}
-            chooseLang={(newLang) => updateStepLang(step.id, newLang)}
-            randomizeLang={() => randomizeStepLang(step.id, langsWithoutOrigin)}
-            removeStep={() => removeStep(step.id)}
-          />
-        )
-      )}
+          );
+        }
+      })}
 
       <button
-        disabled={isFetchingAny || originText === ""}
+        disabled={isFetchingAny || steps[0].text === ""}
         className="mt-1 rounded bg-orange-500 p-1 shadow-md hover:bg-orange-600 disabled:bg-orange-700"
         onClick={() => handleBeginCycle()}
       >
