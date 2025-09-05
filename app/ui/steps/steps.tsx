@@ -151,7 +151,6 @@ const Steps = (): React.JSX.Element => {
   return (
     <div>
       <StepOrigin
-        isTranslating={isFetchingAny}
         lang={originLang}
         text={originText}
         langs={supportedLangs}

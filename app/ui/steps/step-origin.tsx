@@ -2,7 +2,6 @@ import { getLangLabel } from "@/l10n/getLangLabel";
 import type { Language, TranslationText, Event } from "@/types";
 
 interface Props {
-  isTranslating: boolean;
   lang: Language;
   text: TranslationText;
   langs: Language[];
@@ -11,19 +10,13 @@ interface Props {
 }
 
 const StepOrigin = ({
-  isTranslating,
   lang,
   text,
   langs,
   chooseLang,
   updateText,
 }: Props): React.JSX.Element => (
-  <div
-    className={`
-      mt-1 bg-(--white-translucent) rounded p-2
-      ${isTranslating && "bg-yellow-500"}
-    `}
-  >
+  <div className="mt-1 bg-(--white-translucent) rounded p-2">
     <div className="flex direction-row justify-between">
       <select
         className="h-7 w-55 bg-gray-400 rounded border pl-1 cursor-pointer"
