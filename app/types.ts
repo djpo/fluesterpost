@@ -16,10 +16,6 @@ export interface CycleStep {
   text: TranslationText;
 }
 
-export interface CycleStepWithFetching extends CycleStep {
-  isFetching: boolean;
-}
-
 export interface CycleReceived {
   id: number;
   created_at: string;
