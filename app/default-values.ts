@@ -149,22 +149,3 @@ export const defaultCycleStepsWithFetching: CycleStepWithFetching[] = [
     isFetching: false,
   },
 ];
-
-export const defaultCycleStepsToSave: CycleStep[] = [
-  {
-    lang: defaultSupportedLangs[15], // en - English
-    text: "oh yeah",
-  },
-  {
-    lang: defaultSupportedLangs[98], // uk - Ukrainian
-    text: "sumn Ukrainian",
-  },
-  {
-    lang: defaultSupportedLangs[0], // am - Amharic
-    text: "sumn Amharic",
-  },
-  {
-    lang: defaultSupportedLangs[15], // en - English
-    text: "o yea",
-  },
-];
