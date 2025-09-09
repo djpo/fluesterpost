@@ -14,14 +14,14 @@ export const CycleResult = ({
 }: Props): React.JSX.Element => (
   <div>
     <button
-      className="mb-2 px-3 py-2 bg-(--gray-translucent) border rounded cursor-pointer"
+      className="mb-2 px-3 py-2 bg-orange-500 rounded shadow-md cursor-pointer hover:bg-orange-600 disabled:bg-orange-700"
       onClick={handleEdit}
     >
       edit
     </button>
 
     <button
-      className="mb-2 ml-3 px-3 py-2 bg-(--gray-translucent) border rounded cursor-pointer"
+      className="mb-2 ml-3 px-3 py-2 bg-orange-500 rounded shadow-md cursor-pointer hover:bg-orange-600 disabled:bg-orange-700"
       onClick={handleSave}
     >
       save
