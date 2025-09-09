@@ -29,7 +29,7 @@ export const SavedCycle = ({
         <div>
           <div className="flex direction-row justify-between">
             <p className="text-sm font-semibold">
-              cycle #{cycleNumber} // {dateFormatted}
+              cycle #{cycleNumber} • {dateFormatted}
             </p>
             <button
               className="rounded bg-orange-500 p-1 shadow-md text-sm hover:bg-orange-600"
@@ -54,7 +54,7 @@ export const SavedCycle = ({
         <div>
           <div className="flex direction-row justify-between">
             <p className="text-sm font-semibold">
-              cycle #{cycleNumber} // {dateFormatted} //{" "}
+              cycle #{cycleNumber} • {dateFormatted} •{" "}
               {getLangLabel(steps[0].lang)}
             </p>
             <button
