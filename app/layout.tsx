@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Navbar } from "@/ui/navbar";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -31,9 +32,7 @@ export default function RootLayout({
           text-(--foreground)
         `}
       >
-        <header className="flex p-3 bg-(--dark-gray-translucent) justify-between">
-          <p className="text-xl font-semibold text-white">Flüsterpost</p>
-        </header>
+        <Navbar />
 
         {children}
       </body>

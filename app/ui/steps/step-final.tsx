@@ -3,15 +3,11 @@ import type { Language, TranslationText } from "@/types";
 
 interface Props {
   isTranslating: boolean;
-  originLang: Language;
+  lang: Language;
   text: TranslationText;
 }
 
-const StepFinal = ({
-  isTranslating,
-  originLang,
-  text,
-}: Props): React.JSX.Element => (
+const StepFinal = ({ isTranslating, lang, text }: Props): React.JSX.Element => (
   <div
     className={`
       mt-1 bg-(--white-translucent) rounded p-2
@@ -19,7 +15,7 @@ const StepFinal = ({
     `}
   >
     <div className="h-7 w-55 bg-gray-400 rounded border pl-1 cursor-pointer">
-      ({originLang.toUpperCase()}) {getLangLabel(originLang)}
+      ({lang.toUpperCase()}) {getLangLabel(lang)}
     </div>
 
     <div className="mt-2 min-h-13 border rounded bg-gray-200 px-1">

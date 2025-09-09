@@ -1,4 +1,9 @@
-import type { Language, TranslationText, Step, ErrorMessage } from "@/types";
+import { v4 as uuidv4 } from "uuid";
+import type { CycleStep, ErrorMessage, Language } from "@/types";
+
+export const defaultErrorMessage: ErrorMessage = "";
+
+export const defaultAreInstructionsVisible = true;
 
 export const defaultSupportedLangs: Language[] = [
   "am",
@@ -112,34 +117,30 @@ export const defaultSupportedLangs: Language[] = [
   "zu",
 ];
 
-export const defaultOriginLang: Language = defaultSupportedLangs[15]; // en - English
-
-export const defaultOriginText: TranslationText =
-  "whisper to me sweet nothings in the pale moonlight";
-
-export const defaultSteps: Step[] = [
+export const defaultCycleSteps: CycleStep[] = [
   {
+    id: uuidv4(),
+    lang: defaultSupportedLangs[15], // en - English
+    text: "whisper to me sweet nothings in the pale moonlight",
+  },
+  {
+    id: uuidv4(),
     lang: defaultSupportedLangs[21], // fi - Finnish
     text: "",
-    isFetching: false,
   },
   {
+    id: uuidv4(),
     lang: defaultSupportedLangs[98], // uk - Ukrainian
     text: "",
-    isFetching: false,
   },
   {
+    id: uuidv4(),
     lang: defaultSupportedLangs[0], // am - Amharic
     text: "",
-    isFetching: false,
   },
   {
+    id: uuidv4(),
     lang: defaultSupportedLangs[15], // en - English
     text: "",
-    isFetching: false,
   },
 ];
-
-export const defaultErrorMessage: ErrorMessage = "";
-
-export const defaultAreInstructionsVisible = true;
