@@ -143,7 +143,7 @@ const Steps = (): React.JSX.Element => {
               className="mt-1 rounded bg-orange-500 p-1 shadow-md hover:bg-orange-600"
               onClick={() => addStep(langsWithoutOrigin)}
             >
-              add step
+              add language
             </button>
 
             <StepFinal
