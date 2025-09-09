@@ -10,16 +10,14 @@ export default async function Saved(): Promise<React.JSX.Element> {
   return (
     <div className="p-3 flex justify-center">
       <div className="w-full max-w-150">
-        {cycles.map((cycle: Cycle, cycleIndex: number) => {
-          return (
-            <SavedCycle
-              key={cycle.id.toString()}
-              cycleNumber={cycle.id}
-              date={cycle.createdAt}
-              steps={cycle.steps}
-            />
-          );
-        })}
+        {cycles.map((cycle) => (
+          <SavedCycle
+            key={cycle.id}
+            cycleNumber={cycle.id}
+            date={cycle.createdAt}
+            steps={cycle.steps}
+          />
+        ))}
       </div>
     </div>
   );

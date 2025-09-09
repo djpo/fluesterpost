@@ -11,31 +11,29 @@ export const CycleResult = ({
   steps,
   handleEdit,
   handleSave,
-}: Props): React.JSX.Element => {
-  return (
-    <div>
-      <button
-        className="mb-2 px-3 py-2 bg-(--gray-translucent) border rounded cursor-pointer"
-        onClick={handleEdit}
-      >
-        edit
-      </button>
+}: Props): React.JSX.Element => (
+  <div>
+    <button
+      className="mb-2 px-3 py-2 bg-(--gray-translucent) border rounded cursor-pointer"
+      onClick={handleEdit}
+    >
+      edit
+    </button>
 
-      <button
-        className="mb-2 ml-3 px-3 py-2 bg-(--gray-translucent) border rounded cursor-pointer"
-        onClick={handleSave}
-      >
-        save
-      </button>
+    <button
+      className="mb-2 ml-3 px-3 py-2 bg-(--gray-translucent) border rounded cursor-pointer"
+      onClick={handleSave}
+    >
+      save
+    </button>
 
-      {steps.map((step: CycleStep, stepIndex: number) => (
-        <StepFinal
-          key={stepIndex}
-          isTranslating={false}
-          lang={step.lang}
-          text={step.text}
-        />
-      ))}
-    </div>
-  );
-};
+    {steps.map((step: CycleStep, stepIndex: number) => (
+      <StepFinal
+        key={stepIndex}
+        isTranslating={false}
+        lang={step.lang}
+        text={step.text}
+      />
+    ))}
+  </div>
+);
