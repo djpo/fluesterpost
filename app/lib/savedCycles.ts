@@ -9,7 +9,10 @@ const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
 async function fetchCycles(): Promise<CycleReceived[]> {
   "use server";
-  const { data, error } = await supabaseClient.from("cycles").select();
+  const { data, error } = await supabaseClient
+    .from("cycles")
+    .select()
+    .order("created_at", { ascending: false });
   if (error) throw error;
   return data;
 }
