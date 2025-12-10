@@ -7,10 +7,12 @@ see what happens when you translate text through multiple languages, then back i
 - React.js
 - Next.js
 - Google Translation API
+- Vercel
+- Supabase
 
 ## preview
 
-<img width="474" alt="fluesterpost_3_full_mobile" src="https://github.com/user-attachments/assets/e088f8e4-96ac-4d8d-9ba5-75d4254c81ae" />
+<img width="474" alt="2025-12-10 example for readme" src="https://github.com/user-attachments/assets/d99250ac-4ccf-4e97-badd-96338a590a77" />
 
 ## how to run
 
